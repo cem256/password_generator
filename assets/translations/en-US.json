@@ -1,0 +1,13 @@
+{
+    "generate_password": "GENERATE PASSWORD",
+    "generated_password": "GENERATED PASSWORD",
+    "password_copied": "Password Copied",
+    "length": "LENGTH",
+    "settings": "SETTINGS",
+    "uppercase": "Uppercase(eg.ABC)",
+    "lowercase": "Lowercase(eg.abc)",
+    "digits": "Digits(eg.345)",
+    "symbols": "Symbols(@!#?)",
+    "privacy": "Privacy Policy",
+    "version": "Version 1.0.0"
+}
