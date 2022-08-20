@@ -29,7 +29,10 @@ class DrawerWidget extends StatelessWidget {
                     SizedBox(
                       height: context.mediumValue,
                     ),
-                    const Text(StringConstants.appName),
+                    Text(
+                      StringConstants.appName,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
                   ],
                 ),
               ),
@@ -51,6 +54,7 @@ class DrawerWidget extends StatelessWidget {
                   await launchUrlString(mode: LaunchMode.platformDefault, StringConstants.privacyPolicyUrl);
                 },
               ),
+              const Divider(),
             ],
           ),
         ),

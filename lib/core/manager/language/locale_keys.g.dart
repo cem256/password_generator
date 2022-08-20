@@ -8,8 +8,8 @@ abstract class  LocaleKeys {
   static const settings = 'settings';
   static const uppercase = 'uppercase';
   static const lowercase = 'lowercase';
-  static const digits = 'digits';
-  static const symbols = 'symbols';
+  static const numbers = 'numbers';
+  static const special = 'special';
   static const privacy = 'privacy';
   static const version = 'version';
 

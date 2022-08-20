@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/view_constants.dart';
+
 class ProductTheme {
   static final ProductTheme _instance = ProductTheme._init();
   static ProductTheme get instance => _instance;
@@ -10,6 +12,13 @@ class ProductTheme {
     fontFamily: "RobotoMono",
     brightness: Brightness.dark,
     colorSchemeSeed: Colors.amber,
-    appBarTheme: const AppBarTheme(centerTitle: true),
+    appBarTheme: const AppBarTheme(
+      centerTitle: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: ViewConstants.radius,
+        ),
+      ),
+    ),
   );
 }

@@ -10,11 +10,13 @@ dependencies:
     sdk: flutter
 
   #state management
-  flutter_mobx: ^2.0.6+1
-  mobx: ^2.0.7+5
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+
+  #core
+  equatable: ^2.0.5
 
   #codegen
-  mobx_codegen: ^2.0.7
   build_runner: ^2.2.0
 
   url_launcher: ^6.1.5
@@ -22,12 +24,9 @@ dependencies:
   #localization
   easy_localization: ^3.0.1
 
-
   #app icons
   flutter_launcher_icons: ^0.9.3
   flutter_native_splash: ^2.2.7
-  
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
