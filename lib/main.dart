@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'core/manager/language/language_manager.dart';
 import 'core/manager/route/app_router.gr.dart';
@@ -15,17 +17,24 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash();
 
+  final storage = await HydratedStorage.build(
+    storageDirectory: await getApplicationDocumentsDirectory(),
+  );
+
   await EasyLocalization.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
-  runApp(
-    EasyLocalization(
-      supportedLocales: LanguageManager.instance.supportedLocales,
-      path: LanguageManager.instance.path,
-      fallbackLocale: LanguageManager.instance.en,
-      child: PasswordGenerator(),
+  HydratedBlocOverrides.runZoned(
+    () => runApp(
+      EasyLocalization(
+        supportedLocales: LanguageManager.instance.supportedLocales,
+        path: LanguageManager.instance.path,
+        fallbackLocale: LanguageManager.instance.en,
+        child: PasswordGenerator(),
+      ),
     ),
+    storage: storage,
   );
 }
 

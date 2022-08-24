@@ -52,14 +52,27 @@ class PasswordHistoryView extends StatelessWidget {
           } else {
             return Container(
               padding: context.paddingAllDefault,
-              child: ListView.separated(
-                separatorBuilder: (context, index) {
-                  return SizedBox(height: context.mediumValue);
-                },
-                itemCount: state.history.length,
-                itemBuilder: ((context, index) {
-                  return _PasswordHistoryTile(password: state.history[index]);
-                }),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    LocaleKeys.password_history.tr().toUpperCase(),
+                  ),
+                  SizedBox(
+                    height: context.lowValue,
+                  ),
+                  Expanded(
+                    child: ListView.separated(
+                      separatorBuilder: (context, index) {
+                        return SizedBox(height: context.mediumValue);
+                      },
+                      itemCount: state.history.length,
+                      itemBuilder: ((context, index) {
+                        return _PasswordHistoryTile(password: state.history[index]);
+                      }),
+                    ),
+                  ),
+                ],
               ),
             );
           }

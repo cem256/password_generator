@@ -26,4 +26,17 @@ class HistoryState extends Equatable {
       isDeleted: isDeleted ?? this.isDeleted,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'history': history,
+    };
+  }
+
+  factory HistoryState.fromMap(Map<String, dynamic> map) {
+    return HistoryState(
+        history: List<String>.from(
+      (map['history'] as List<String>),
+    ));
+  }
 }

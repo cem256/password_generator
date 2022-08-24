@@ -12,12 +12,14 @@ dependencies:
   #state management
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
+  hydrated_bloc: ^8.1.0
 
   #core
   equatable: ^2.0.5
 
   #utility
   url_launcher: ^6.1.5
+  path_provider: ^2.0.11
 
   #localization
   easy_localization: ^3.0.1

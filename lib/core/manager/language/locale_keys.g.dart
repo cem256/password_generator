@@ -12,6 +12,7 @@ abstract class  LocaleKeys {
   static const numbers = 'numbers';
   static const special = 'special';
   static const history = 'history';
+  static const password_history = 'password_history';
   static const history_empty = 'history_empty';
   static const password_deleted = 'password_deleted';
   static const privacy = 'privacy';

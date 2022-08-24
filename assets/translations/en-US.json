@@ -10,6 +10,7 @@
     "numbers": "Numbers(eg.345)",
     "special": "Special(@!#?)",
     "history": "History",
+    "password_history": "Password History",
     "history_empty": "History is Empty",
     "password_deleted": "Password permanently deleted",
     "privacy": "Privacy Policy",
