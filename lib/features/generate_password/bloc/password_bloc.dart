@@ -15,7 +15,7 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
     on<LowercaseSwitchPressed>(_onLowercaseSwitchPressed);
     on<NumbersSwitchPressed>(_onNumbersSwitchPressed);
     on<SpecialSwitchPressed>(_onSpecialSwitchPressed);
-    on<LengthChanged>(_onLengthChanged);
+    on<PasswordLengthChanged>(_onPasswordLengthChanged);
     on<GeneratePassword>(_onGeneratePassword);
     on<PasswordCopied>(_onPasswordCopied);
   }
@@ -48,7 +48,7 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
     }
   }
 
-  void _onLengthChanged(LengthChanged event, Emitter<PasswordState> emit) {
+  void _onPasswordLengthChanged(PasswordLengthChanged event, Emitter<PasswordState> emit) {
     emit(state.copyWith(length: event.length));
     if (!isAllSettingsDisabled) {
       emit(state.copyWith(password: _generatePassword()));
@@ -60,7 +60,9 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
   }
 
   Future<void> _onPasswordCopied(PasswordCopied event, Emitter<PasswordState> emit) async {
+    emit(state.copyWith(isCopied: true));
     await Clipboard.setData(ClipboardData(text: state.password));
+    emit(state.copyWith(isCopied: false));
   }
 
   bool get isAllSettingsDisabled =>

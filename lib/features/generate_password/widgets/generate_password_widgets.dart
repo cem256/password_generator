@@ -1,9 +1,7 @@
 part of '../view/generate_password_view.dart';
 
-class _CopyGeneratedPassword extends StatelessWidget {
-  const _CopyGeneratedPassword({
-    Key? key,
-  }) : super(key: key);
+class _GeneratedPassword extends StatelessWidget {
+  const _GeneratedPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,23 +10,20 @@ class _CopyGeneratedPassword extends StatelessWidget {
       children: [
         BlocBuilder<PasswordBloc, PasswordState>(
           builder: (context, state) {
-            return Text(state.password);
+            return Flexible(
+              child: Text(
+                state.password,
+                softWrap: false,
+                overflow: TextOverflow.fade,
+              ),
+            );
           },
         ),
         IconButton(
           padding: EdgeInsets.zero,
           alignment: Alignment.centerRight,
           icon: const Icon(Icons.content_copy_outlined),
-          onPressed: () {
-            context.read<PasswordBloc>().add(PasswordCopied());
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                duration: context.durationHigh,
-                padding: context.paddingAllDefault,
-                content: Text(LocaleKeys.password_copied.tr()),
-              ),
-            );
-          },
+          onPressed: () => context.read<PasswordBloc>().add(PasswordCopied()),
         ),
       ],
     );
@@ -56,7 +51,7 @@ class _SliderWidget extends StatelessWidget {
                 label: state.length.toStringAsFixed(0),
                 onChanged: (value) {
                   if (!context.read<PasswordBloc>().isAllSettingsDisabled) {
-                    context.read<PasswordBloc>().add(LengthChanged(value));
+                    context.read<PasswordBloc>().add(PasswordLengthChanged(value));
                   }
                 },
               );

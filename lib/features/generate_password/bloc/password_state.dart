@@ -7,6 +7,7 @@ class PasswordState extends Equatable {
   final bool hasNumbers;
   final bool hasSpecial;
   final String password;
+  final bool isCopied;
 
   const PasswordState({
     this.length = PasswordConstants.initialLength,
@@ -15,6 +16,7 @@ class PasswordState extends Equatable {
     this.hasNumbers = true,
     this.hasSpecial = true,
     this.password = "",
+    this.isCopied = false,
   });
 
   @override
@@ -25,6 +27,7 @@ class PasswordState extends Equatable {
         hasNumbers,
         hasSpecial,
         password,
+        isCopied,
       ];
 
   PasswordState copyWith({
@@ -34,6 +37,7 @@ class PasswordState extends Equatable {
     bool? hasNumbers,
     bool? hasSpecial,
     String? password,
+    bool? isCopied,
   }) {
     return PasswordState(
       length: length ?? this.length,
@@ -42,6 +46,7 @@ class PasswordState extends Equatable {
       hasNumbers: hasNumbers ?? this.hasNumbers,
       hasSpecial: hasSpecial ?? this.hasSpecial,
       password: password ?? this.password,
+      isCopied: isCopied ?? this.isCopied,
     );
   }
 }

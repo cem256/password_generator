@@ -15,8 +15,8 @@ class NumbersSwitchPressed extends PasswordEvent {}
 
 class SpecialSwitchPressed extends PasswordEvent {}
 
-class LengthChanged extends PasswordEvent {
-  const LengthChanged(this.length);
+class PasswordLengthChanged extends PasswordEvent {
+  const PasswordLengthChanged(this.length);
   final double length;
 
   @override

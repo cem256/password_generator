@@ -12,6 +12,8 @@ class ProductTheme {
     fontFamily: "RobotoMono",
     brightness: Brightness.dark,
     colorSchemeSeed: Colors.amber,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       shape: RoundedRectangleBorder(

@@ -12,7 +12,6 @@ class DefaultContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: context.paddingHorizontalDefault,
-      height: context.highValue,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: ViewConstants.borderCircular,

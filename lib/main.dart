@@ -5,8 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'core/manager/language/language_manager.dart';
+import 'core/manager/route/app_router.gr.dart';
 import 'features/generate_password/bloc/password_bloc.dart';
-import 'features/generate_password/view/generate_password_view.dart';
+import 'features/password_history/bloc/history_bloc.dart';
 import 'product/constants/string_constants.dart';
 import 'product/theme/product_theme.dart';
 
@@ -23,28 +24,42 @@ Future<void> main() async {
       supportedLocales: LanguageManager.instance.supportedLocales,
       path: LanguageManager.instance.path,
       fallbackLocale: LanguageManager.instance.en,
-      child: const PasswordGenerator(),
+      child: PasswordGenerator(),
     ),
   );
 }
 
 class PasswordGenerator extends StatelessWidget {
-  const PasswordGenerator({Key? key}) : super(key: key);
+  PasswordGenerator({Key? key}) : super(key: key);
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => PasswordBloc()..add(GeneratePassword()),
-      child: MaterialApp(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PasswordBloc>(
+          create: (BuildContext context) => PasswordBloc()..add(GeneratePassword()),
+        ),
+        BlocProvider<HistoryBloc>(
+          create: (BuildContext context) => HistoryBloc(),
+        ),
+      ],
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: StringConstants.appName,
+
+        //theme
         theme: ProductTheme.instance.theme,
-        home: const GeneratePasswordView(),
 
         //language
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
+
+        // routing
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
       ),
     );
   }

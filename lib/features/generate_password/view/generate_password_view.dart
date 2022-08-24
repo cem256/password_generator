@@ -8,6 +8,7 @@ import '../../../product/constants/password_constants.dart';
 import '../../../product/widgets/custom_elevated_button_widget.dart';
 import '../../../product/widgets/default_container_widget.dart';
 import '../../../product/widgets/drawer_widget.dart';
+import '../../password_history/bloc/history_bloc.dart';
 import '../bloc/password_bloc.dart';
 
 part '../widgets/generate_password_widgets.dart';
@@ -17,84 +18,104 @@ class GeneratePasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          LocaleKeys.generate_password.tr(),
+    return BlocListener<PasswordBloc, PasswordState>(
+      listener: (context, state) {
+        if (state.isCopied) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              duration: context.durationHigh,
+              padding: context.paddingAllDefault,
+              content: Text(
+                LocaleKeys.password_copied.tr(),
+              ),
+            ),
+          );
+          context.read<HistoryBloc>().add(AddToHistoryPressed(state.password));
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            LocaleKeys.generate_password.tr().toUpperCase(),
+          ),
         ),
-      ),
-      drawer: const DrawerWidget(),
-      body: SafeArea(
-        child: Container(
-          padding: context.paddingAllDefault,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                LocaleKeys.generated_password.tr(),
-              ),
-              SizedBox(
-                height: context.lowValue,
-              ),
-              const _CopyGeneratedPassword(),
-              SizedBox(
-                height: context.mediumValue,
-              ),
-              BlocBuilder<PasswordBloc, PasswordState>(
-                builder: (context, state) {
-                  return Text("${LocaleKeys.length.tr()} ${state.password.length}");
-                },
-              ),
-              SizedBox(
-                height: context.lowValue,
-              ),
-              const DefaultContainer(
-                child: _SliderWidget(),
-              ),
-              SizedBox(
-                height: context.mediumValue,
-              ),
-              Text(
-                LocaleKeys.settings.tr(),
-              ),
-              SizedBox(
-                height: context.lowValue,
-              ),
-              const DefaultContainer(
-                child: _UppercaseSwitch(),
-              ),
-              SizedBox(
-                height: context.lowValue,
-              ),
-              const DefaultContainer(
-                child: _LowercaseSwitch(),
-              ),
-              SizedBox(
-                height: context.lowValue,
-              ),
-              const DefaultContainer(
-                child: _NumbersSwitch(),
-              ),
-              SizedBox(
-                height: context.lowValue,
-              ),
-              const DefaultContainer(
-                child: _SpecialSwitch(),
-              ),
-              const Spacer(),
-              SizedBox(
-                width: double.infinity,
-                height: context.highValue,
-                child: BlocBuilder<PasswordBloc, PasswordState>(
+        drawer: const DrawerWidget(),
+        body: SafeArea(
+          child: Container(
+            padding: context.paddingAllDefault,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  LocaleKeys.generated_password.tr().toUpperCase(),
+                ),
+                SizedBox(
+                  height: context.lowValue,
+                ),
+                const DefaultContainer(
+                  child: _GeneratedPassword(),
+                ),
+                SizedBox(
+                  height: context.mediumValue,
+                ),
+                BlocBuilder<PasswordBloc, PasswordState>(
                   builder: (context, state) {
-                    return CustomElevatedButton(
-                        onPressed: () => context.read<PasswordBloc>().add(GeneratePassword()),
-                        isDisabled: context.read<PasswordBloc>().isAllSettingsDisabled,
-                        child: Text(LocaleKeys.generate_password.tr()));
+                    return Text(
+                      "${LocaleKeys.length.tr().toUpperCase()} ${state.password.length}",
+                    );
                   },
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: context.lowValue,
+                ),
+                const DefaultContainer(
+                  child: _SliderWidget(),
+                ),
+                SizedBox(
+                  height: context.mediumValue,
+                ),
+                Text(
+                  LocaleKeys.settings.tr().toUpperCase(),
+                ),
+                SizedBox(
+                  height: context.lowValue,
+                ),
+                const DefaultContainer(
+                  child: _UppercaseSwitch(),
+                ),
+                SizedBox(
+                  height: context.lowValue,
+                ),
+                const DefaultContainer(
+                  child: _LowercaseSwitch(),
+                ),
+                SizedBox(
+                  height: context.lowValue,
+                ),
+                const DefaultContainer(
+                  child: _NumbersSwitch(),
+                ),
+                SizedBox(
+                  height: context.lowValue,
+                ),
+                const DefaultContainer(
+                  child: _SpecialSwitch(),
+                ),
+                const Spacer(),
+                SizedBox(
+                  width: double.infinity,
+                  height: context.highValue,
+                  child: BlocBuilder<PasswordBloc, PasswordState>(
+                    builder: (context, state) {
+                      return CustomElevatedButton(
+                          onPressed: () => context.read<PasswordBloc>().add(GeneratePassword()),
+                          isDisabled: context.read<PasswordBloc>().isAllSettingsDisabled,
+                          child: Text(LocaleKeys.generate_password.tr().toUpperCase()));
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
