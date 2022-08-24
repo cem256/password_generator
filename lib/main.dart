@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'core/manager/language/language_manager.dart';
-import 'features/generate_password/view/bloc/password_bloc.dart';
-import 'features/generate_password/view/view/generate_password_view.dart';
+import 'features/generate_password/bloc/password_bloc.dart';
+import 'features/generate_password/view/generate_password_view.dart';
 import 'product/constants/string_constants.dart';
 import 'product/theme/product_theme.dart';
 
