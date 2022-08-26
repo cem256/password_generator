@@ -8,9 +8,25 @@ class ProductTheme {
 
   ProductTheme._init();
 
-  final ThemeData theme = ThemeData(
+  final ThemeData darkTheme = ThemeData(
     fontFamily: "RobotoMono",
     brightness: Brightness.dark,
+    colorSchemeSeed: Colors.amber,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    appBarTheme: const AppBarTheme(
+      centerTitle: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: ViewConstants.radius,
+        ),
+      ),
+    ),
+  );
+
+  final ThemeData lightTheme = ThemeData(
+    fontFamily: "RobotoMono",
+    brightness: Brightness.light,
     colorSchemeSeed: Colors.amber,
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,

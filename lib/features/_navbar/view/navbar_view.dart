@@ -21,7 +21,7 @@ class NavbarView extends StatelessWidget {
           onTap: tabsRouter.setActiveIndex,
           items: [
             BottomNavigationBarItem(
-              icon: const Icon(Icons.password_outlined),
+              icon: const Icon(Icons.password),
               label: LocaleKeys.generate.tr(),
             ),
             BottomNavigationBarItem(

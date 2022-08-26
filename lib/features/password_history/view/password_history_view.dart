@@ -105,13 +105,13 @@ class _PasswordHistoryTile extends StatelessWidget {
               IconButton(
                 padding: EdgeInsets.zero,
                 alignment: Alignment.centerRight,
-                icon: const Icon(Icons.content_copy_outlined),
+                icon: const Icon(Icons.content_copy),
                 onPressed: () => context.read<HistoryBloc>().add(CopyPasswordPressed(password)),
               ),
               IconButton(
                 padding: EdgeInsets.zero,
                 alignment: Alignment.centerRight,
-                icon: const Icon(Icons.delete_forever_outlined),
+                icon: const Icon(Icons.delete_forever),
                 onPressed: () => context.read<HistoryBloc>().add(DeleteFromHistoryPressed(password)),
               ),
             ],

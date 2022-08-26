@@ -22,7 +22,7 @@ class _GeneratedPassword extends StatelessWidget {
         IconButton(
           padding: EdgeInsets.zero,
           alignment: Alignment.centerRight,
-          icon: const Icon(Icons.content_copy_outlined),
+          icon: const Icon(Icons.content_copy),
           onPressed: () => context.read<PasswordBloc>().add(PasswordCopied()),
         ),
       ],

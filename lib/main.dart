@@ -11,6 +11,7 @@ import 'core/manager/route/app_router.gr.dart';
 import 'features/generate_password/bloc/password_bloc.dart';
 import 'features/password_history/bloc/history_bloc.dart';
 import 'product/constants/string_constants.dart';
+import 'product/theme/bloc/theme_bloc.dart';
 import 'product/theme/product_theme.dart';
 
 Future<void> main() async {
@@ -23,7 +24,6 @@ Future<void> main() async {
 
   await EasyLocalization.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
   HydratedBlocOverrides.runZoned(
     () => runApp(
@@ -47,6 +47,9 @@ class PasswordGenerator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider<ThemeBloc>(
+          create: (BuildContext context) => ThemeBloc(),
+        ),
         BlocProvider<PasswordBloc>(
           create: (BuildContext context) => PasswordBloc()..add(GeneratePassword()),
         ),
@@ -54,21 +57,27 @@ class PasswordGenerator extends StatelessWidget {
           create: (BuildContext context) => HistoryBloc(),
         ),
       ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: StringConstants.appName,
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: StringConstants.appName,
 
-        //theme
-        theme: ProductTheme.instance.theme,
+            //theme
+            themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
+            theme: ProductTheme.instance.lightTheme,
+            darkTheme: ProductTheme.instance.darkTheme,
 
-        //language
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
+            //language
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
 
-        // routing
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
+            // routing
+            routerDelegate: _appRouter.delegate(),
+            routeInformationParser: _appRouter.defaultRouteParser(),
+          );
+        },
       ),
     );
   }
