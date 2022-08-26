@@ -23,10 +23,11 @@ class PasswordHistoryView extends StatelessWidget {
           if (state.isCopied) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                duration: context.durationHigh,
-                padding: context.paddingAllDefault,
+                duration: context.durationDefault,
+                margin: context.paddingAllVeryHigh,
                 content: Text(
                   LocaleKeys.password_copied.tr(),
+                  textAlign: TextAlign.center,
                 ),
               ),
             );
@@ -34,9 +35,12 @@ class PasswordHistoryView extends StatelessWidget {
           if (state.isDeleted) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                duration: context.durationHigh,
-                padding: context.paddingAllDefault,
-                content: Text(LocaleKeys.password_deleted.tr()),
+                duration: context.durationDefault,
+                margin: context.paddingAllVeryHigh,
+                content: Text(
+                  LocaleKeys.password_deleted.tr(),
+                  textAlign: TextAlign.center,
+                ),
               ),
             );
           }

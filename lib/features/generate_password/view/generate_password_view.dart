@@ -23,10 +23,11 @@ class GeneratePasswordView extends StatelessWidget {
         if (state.isCopied) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              duration: context.durationHigh,
-              padding: context.paddingAllDefault,
+              duration: context.durationDefault,
+              margin: context.paddingAllVeryHigh,
               content: Text(
                 LocaleKeys.password_copied.tr(),
+                textAlign: TextAlign.center,
               ),
             ),
           );
