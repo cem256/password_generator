@@ -17,7 +17,7 @@ Password Generator generates secure passwords of specified length and settings.
 
 ## Privacy Policy
 
-You can access the privacy policy by clicking [here](PRIVACY_POLICY.md).
+You can access the privacy policy by clicking [here](privacy-policy.md).
 
 ## License
 
