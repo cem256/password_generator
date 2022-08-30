@@ -10,9 +10,11 @@ Password Generator generates secure passwords of specified length and settings.
 ## Preview
 
 <p align='center'>
-    <img src="screenshots/preview1.jpeg" width="32%"/>
-    <img src="screenshots/preview2.jpeg" width="32%"/>
-    <img src="screenshots/preview3.jpeg" width="32%"/>
+    <img src="screenshots/preview1.jpeg" width="19%"/>
+    <img src="screenshots/preview2.jpeg" width="19%"/>
+    <img src="screenshots/preview3.jpeg" width="19%"/>
+    <img src="screenshots/preview4.jpeg" width="19%"/>
+    <img src="screenshots/preview5.jpeg" width="19%"/>
 </p>
 
 ## Privacy Policy
