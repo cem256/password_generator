@@ -2,6 +2,9 @@
 
 Password Generator generates secure passwords of specified length and settings.
 
+## Available on
+[![Google Play](https://play.google.com/intl/en_us/badges/images/badge_new.png)](https://play.google.com/store/apps/details?id=com.cem256.passwordgenerator)
+
 ## Built With
 
 - [Flutter](https://flutter.dev/)
