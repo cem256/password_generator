@@ -18,23 +18,20 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash();
 
-  final storage = await HydratedStorage.build(
+  HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
 
   await EasyLocalization.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  HydratedBlocOverrides.runZoned(
-    () => runApp(
-      EasyLocalization(
-        supportedLocales: LanguageManager.instance.supportedLocales,
-        path: LanguageManager.instance.path,
-        fallbackLocale: LanguageManager.instance.en,
-        child: PasswordGenerator(),
-      ),
+  runApp(
+    EasyLocalization(
+      supportedLocales: LanguageManager.instance.supportedLocales,
+      path: LanguageManager.instance.path,
+      fallbackLocale: LanguageManager.instance.en,
+      child: PasswordGenerator(),
     ),
-    storage: storage,
   );
 }
 
