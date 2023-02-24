@@ -14,11 +14,12 @@ class PasswordSettings with _$PasswordSettings {
   }) = _PasswordSettings;
 
   factory PasswordSettings.initial() => const PasswordSettings(
-      length: PasswordConstants.initialLength,
-      hasLowercase: true,
-      hasUppercase: true,
-      hasNumbers: true,
-      hasSpecial: true);
+        length: PasswordConstants.initialLength,
+        hasLowercase: true,
+        hasUppercase: true,
+        hasNumbers: true,
+        hasSpecial: true,
+      );
 
   const PasswordSettings._();
 

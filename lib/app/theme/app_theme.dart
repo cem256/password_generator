@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'app_borders.dart';
+import 'package:password_generator/app/theme/app_borders.dart';
 
 class AppTheme {
+  AppTheme._init();
   static final AppTheme _instance = AppTheme._init();
   static AppTheme get instance => _instance;
-
-  AppTheme._init();
 
   ThemeData get darkTheme => ThemeData(
         fontFamily: _fontFamily,
@@ -28,7 +27,7 @@ class AppTheme {
         snackBarTheme: _snackBarTheme,
       );
 
-  final _fontFamily = "RobotMono";
+  final _fontFamily = 'RobotMono';
 
   final _colorSchemeSeed = Colors.amber;
 

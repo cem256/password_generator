@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../../core/extensions/context_extensions.dart';
-import '../theme/app_borders.dart';
+import 'package:password_generator/app/theme/app_borders.dart';
+import 'package:password_generator/core/extensions/context_extensions.dart';
 
 class DefaultContainer extends StatelessWidget {
-  const DefaultContainer({Key? key, required this.child}) : super(key: key);
+  const DefaultContainer({required this.child, super.key});
 
   final Widget child;
 

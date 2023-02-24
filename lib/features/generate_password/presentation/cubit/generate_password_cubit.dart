@@ -1,9 +1,11 @@
+// ignore_for_file: cascade_invocations
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../data/model/password_settings.dart';
-import '../../data/repository/generate_password_repository.dart';
+import 'package:password_generator/features/generate_password/data/model/password_settings.dart';
+import 'package:password_generator/features/generate_password/data/repository/generate_password_repository.dart';
 
 part 'generate_password_state.dart';
 part 'generate_password_cubit.freezed.dart';
@@ -16,7 +18,7 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
   final GeneratePasswordRepository _generatePasswordRepository;
 
   void lengthChanged({required double length}) {
-    final PasswordSettings passwordSettings = state.passwordSettings.copyWith(length: length);
+    final passwordSettings = state.passwordSettings.copyWith(length: length);
     final result = _generatePasswordRepository.generatePassword(passwordSettings);
 
     result.fold(
@@ -30,7 +32,7 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
   }
 
   void uppercaseChanged({required bool hasUppercase}) {
-    final PasswordSettings passwordSettings = state.passwordSettings.copyWith(hasUppercase: hasUppercase);
+    final passwordSettings = state.passwordSettings.copyWith(hasUppercase: hasUppercase);
     final result = _generatePasswordRepository.generatePassword(passwordSettings);
 
     result.fold(
@@ -44,7 +46,7 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
   }
 
   void lowercaseChanged({required bool hasLowercase}) {
-    final PasswordSettings passwordSettings = state.passwordSettings.copyWith(hasLowercase: hasLowercase);
+    final passwordSettings = state.passwordSettings.copyWith(hasLowercase: hasLowercase);
     final result = _generatePasswordRepository.generatePassword(passwordSettings);
 
     result.fold(
@@ -58,7 +60,7 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
   }
 
   void numbersChanged({required bool hasNumbers}) {
-    final PasswordSettings passwordSettings = state.passwordSettings.copyWith(hasNumbers: hasNumbers);
+    final passwordSettings = state.passwordSettings.copyWith(hasNumbers: hasNumbers);
     final result = _generatePasswordRepository.generatePassword(passwordSettings);
 
     result.fold(
@@ -72,7 +74,7 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
   }
 
   void specialChanged({required bool hasSpecial}) {
-    final PasswordSettings passwordSettings = state.passwordSettings.copyWith(hasSpecial: hasSpecial);
+    final passwordSettings = state.passwordSettings.copyWith(hasSpecial: hasSpecial);
     final result = _generatePasswordRepository.generatePassword(passwordSettings);
 
     result.fold(
@@ -86,7 +88,7 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
   }
 
   void generatePasswordPressed() {
-    final PasswordSettings passwordSettings = state.passwordSettings;
+    final passwordSettings = state.passwordSettings;
     final result = _generatePasswordRepository.generatePassword(passwordSettings);
 
     result.fold(

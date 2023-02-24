@@ -3,11 +3,10 @@ import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter/material.dart';
 import 'package:password_generator/app/l10n/l10n.g.dart';
-
-import '../../../app/router/app_router.gr.dart';
+import 'package:password_generator/app/router/app_router.gr.dart';
 
 class NavbarView extends StatelessWidget {
-  const NavbarView({Key? key}) : super(key: key);
+  const NavbarView({super.key});
 
   @override
   Widget build(BuildContext context) {

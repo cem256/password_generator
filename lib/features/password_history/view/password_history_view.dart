@@ -1,17 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../app/l10n/l10n.g.dart';
-import '../../../app/widgets/drawer_widget.dart';
-import '../../../core/extensions/context_extensions.dart';
-
-import '../../../app/widgets/default_container_widget.dart';
-
-import '../bloc/history_bloc.dart';
+import 'package:password_generator/app/l10n/l10n.g.dart';
+import 'package:password_generator/app/widgets/default_container_widget.dart';
+import 'package:password_generator/app/widgets/drawer_widget.dart';
+import 'package:password_generator/core/extensions/context_extensions.dart';
+import 'package:password_generator/features/password_history/bloc/history_bloc.dart';
 
 class PasswordHistoryView extends StatelessWidget {
-  const PasswordHistoryView({Key? key}) : super(key: key);
+  const PasswordHistoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -73,9 +70,9 @@ class PasswordHistoryView extends StatelessWidget {
                         return SizedBox(height: context.mediumValue);
                       },
                       itemCount: state.history.length,
-                      itemBuilder: ((context, index) {
+                      itemBuilder: (context, index) {
                         return _PasswordHistoryTile(password: state.history[index]);
-                      }),
+                      },
                     ),
                   ),
                 ],
@@ -89,7 +86,7 @@ class PasswordHistoryView extends StatelessWidget {
 }
 
 class _PasswordHistoryTile extends StatelessWidget {
-  const _PasswordHistoryTile({Key? key, required this.password}) : super(key: key);
+  const _PasswordHistoryTile({required this.password});
 
   final String password;
 

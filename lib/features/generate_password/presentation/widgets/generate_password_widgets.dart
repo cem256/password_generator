@@ -1,7 +1,7 @@
 part of '../view/generate_password_view.dart';
 
 class _GeneratedPassword extends StatelessWidget {
-  const _GeneratedPassword({Key? key}) : super(key: key);
+  const _GeneratedPassword();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _GeneratedPassword extends StatelessWidget {
 }
 
 class _SliderWidget extends StatelessWidget {
-  const _SliderWidget({Key? key}) : super(key: key);
+  const _SliderWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class _SliderWidget extends StatelessWidget {
 }
 
 class _UppercaseSwitch extends StatelessWidget {
-  const _UppercaseSwitch({Key? key}) : super(key: key);
+  const _UppercaseSwitch();
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,7 @@ class _UppercaseSwitch extends StatelessWidget {
 }
 
 class _LowercaseSwitch extends StatelessWidget {
-  const _LowercaseSwitch({Key? key}) : super(key: key);
+  const _LowercaseSwitch();
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +114,7 @@ class _LowercaseSwitch extends StatelessWidget {
 }
 
 class _NumbersSwitch extends StatelessWidget {
-  const _NumbersSwitch({Key? key}) : super(key: key);
+  const _NumbersSwitch();
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +136,7 @@ class _NumbersSwitch extends StatelessWidget {
 }
 
 class _SpecialSwitch extends StatelessWidget {
-  const _SpecialSwitch({Key? key}) : super(key: key);
+  const _SpecialSwitch();
 
   @override
   Widget build(BuildContext context) {

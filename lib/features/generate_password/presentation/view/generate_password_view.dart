@@ -1,21 +1,19 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../app/l10n/l10n.g.dart';
-import '../../../../core/extensions/context_extensions.dart';
-
-import '../../../../app/constants/password_constants.dart';
-import '../../../../app/widgets/custom_elevated_button_widget.dart';
-import '../../../../app/widgets/default_container_widget.dart';
-import '../../../../app/widgets/drawer_widget.dart';
-import '../../../password_history/bloc/history_bloc.dart';
-import '../cubit/generate_password_cubit.dart';
+import 'package:password_generator/app/constants/password_constants.dart';
+import 'package:password_generator/app/l10n/l10n.g.dart';
+import 'package:password_generator/app/widgets/custom_elevated_button_widget.dart';
+import 'package:password_generator/app/widgets/default_container_widget.dart';
+import 'package:password_generator/app/widgets/drawer_widget.dart';
+import 'package:password_generator/core/extensions/context_extensions.dart';
+import 'package:password_generator/features/generate_password/presentation/cubit/generate_password_cubit.dart';
+import 'package:password_generator/features/password_history/bloc/history_bloc.dart';
 
 part '../widgets/generate_password_widgets.dart';
 
 class GeneratePasswordView extends StatelessWidget {
-  const GeneratePasswordView({Key? key}) : super(key: key);
+  const GeneratePasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +61,7 @@ class GeneratePasswordView extends StatelessWidget {
                 BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
                   builder: (context, state) {
                     return Text(
-                      "${LocaleKeys.length.tr().toUpperCase()} ${state.password.length}",
+                      '${LocaleKeys.length.tr().toUpperCase()} ${state.password.length}',
                     );
                   },
                 ),
@@ -110,9 +108,10 @@ class GeneratePasswordView extends StatelessWidget {
                   child: BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
                     builder: (context, state) {
                       return CustomElevatedButton(
-                          onPressed: () => context.read<GeneratePasswordCubit>().generatePasswordPressed(),
-                          isDisabled: state.passwordSettings.isAllSettingsDisabled,
-                          child: Text(LocaleKeys.generate_password.tr().toUpperCase()));
+                        onPressed: () => context.read<GeneratePasswordCubit>().generatePasswordPressed(),
+                        isDisabled: state.passwordSettings.isAllSettingsDisabled,
+                        child: Text(LocaleKeys.generate_password.tr().toUpperCase()),
+                      );
                     },
                   ),
                 ),

@@ -4,17 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:password_generator/app/constants/string_constants.dart';
 import 'package:password_generator/app/l10n/l10n_manager.dart';
+import 'package:password_generator/app/router/app_router.gr.dart';
 import 'package:password_generator/app/theme/app_theme.dart';
-
+import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
+import 'package:password_generator/features/generate_password/data/repository/generate_password_repository.dart';
+import 'package:password_generator/features/generate_password/presentation/cubit/generate_password_cubit.dart';
+import 'package:password_generator/features/password_history/bloc/history_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-
-import 'app/router/app_router.gr.dart';
-import 'app/theme/cubit/theme_cubit.dart';
-import 'features/generate_password/data/repository/generate_password_repository.dart';
-import 'features/generate_password/presentation/cubit/generate_password_cubit.dart';
-import 'features/password_history/bloc/history_bloc.dart';
-import 'app/constants/string_constants.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +36,7 @@ Future<void> main() async {
 }
 
 class PasswordGenerator extends StatelessWidget {
-  PasswordGenerator({Key? key}) : super(key: key);
+  PasswordGenerator({super.key});
 
   final _appRouter = AppRouter();
 

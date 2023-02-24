@@ -1,18 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:password_generator/app/constants/asset_constants.dart';
+import 'package:password_generator/app/constants/string_constants.dart';
+import 'package:password_generator/app/l10n/l10n.g.dart';
+import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
+import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import '../../core/extensions/context_extensions.dart';
-
-import '../constants/asset_constants.dart';
-import '../constants/string_constants.dart';
-import '../l10n/locale_keys.g.dart';
-import '../theme/cubit/theme_cubit.dart';
-
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({Key? key}) : super(key: key);
+  const DrawerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +23,24 @@ class DrawerWidget extends StatelessWidget {
               Center(
                 child: Column(
                   children: [
-                    Stack(alignment: Alignment.topRight, children: [
-                      SizedBox(
-                        height: context.veryHighValue2x,
-                        width: double.infinity,
-                        child: Image.asset(AssetConstants.appIcon),
-                      ),
-                      BlocBuilder<ThemeCubit, ThemeState>(
-                        builder: (context, state) {
-                          return IconButton(
-                            onPressed: () => context.read<ThemeCubit>().themeChanged(),
-                            icon: Icon(state.isDark ? Icons.brightness_high : Icons.dark_mode),
-                          );
-                        },
-                      ),
-                    ]),
+                    Stack(
+                      alignment: Alignment.topRight,
+                      children: [
+                        SizedBox(
+                          height: context.veryHighValue2x,
+                          width: double.infinity,
+                          child: Image.asset(AssetConstants.appIcon),
+                        ),
+                        BlocBuilder<ThemeCubit, ThemeState>(
+                          builder: (context, state) {
+                            return IconButton(
+                              onPressed: () => context.read<ThemeCubit>().themeChanged(),
+                              icon: Icon(state.isDark ? Icons.brightness_high : Icons.dark_mode),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                     SizedBox(
                       height: context.mediumValue,
                     ),
@@ -66,7 +66,7 @@ class DrawerWidget extends StatelessWidget {
                 leading: const Icon(Icons.privacy_tip),
                 title: Text(LocaleKeys.privacy.tr()),
                 onTap: () async {
-                  await launchUrlString(mode: LaunchMode.platformDefault, StringConstants.privacyPolicyUrl);
+                  await launchUrlString(StringConstants.privacyPolicyUrl);
                 },
               ),
               const Divider(),

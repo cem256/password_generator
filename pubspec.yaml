@@ -40,7 +40,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  #linter
+  very_good_analysis: ^4.0.0
 
   #code gen
   freezed: ^2.3.2
