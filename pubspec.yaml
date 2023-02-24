@@ -26,6 +26,12 @@ dependencies:
   #routing
   auto_route: ^5.0.1
 
+  #functional programming
+  dartz: ^0.10.1
+
+  #code gen
+  freezed_annotation: ^2.2.0
+
   #app icons
   flutter_launcher_icons: ^0.9.3
   flutter_native_splash: ^2.2.7
@@ -37,6 +43,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
   #code gen
+  freezed: ^2.3.2
   build_runner: ^2.2.0
   auto_route_generator: ^5.0.1
 
@@ -60,10 +67,8 @@ flutter:
   assets:
     - assets/translations/
     - assets/icons/
-  #   - images/a_dot_ham.jpeg
 
   fonts:
     - family: RobotoMono
       fonts:
         - asset: assets/fonts/RobotoMono-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf

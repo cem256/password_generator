@@ -4,11 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+
 import 'package:path_provider/path_provider.dart';
 
 import 'core/manager/language/language_manager.dart';
 import 'core/manager/route/app_router.gr.dart';
-import 'features/generate_password/bloc/password_bloc.dart';
+import 'features/generate_password/data/repository/generate_password_repository.dart';
+import 'features/generate_password/presentation/cubit/generate_password_cubit.dart';
 import 'features/password_history/bloc/history_bloc.dart';
 import 'product/constants/string_constants.dart';
 import 'product/theme/bloc/theme_bloc.dart';
@@ -47,8 +49,10 @@ class PasswordGenerator extends StatelessWidget {
         BlocProvider<ThemeBloc>(
           create: (BuildContext context) => ThemeBloc(),
         ),
-        BlocProvider<PasswordBloc>(
-          create: (BuildContext context) => PasswordBloc()..add(GeneratePassword()),
+        BlocProvider<GeneratePasswordCubit>(
+          create: (_) => GeneratePasswordCubit(
+            generatePasswordRepository: GeneratePasswordRepositoryImpl(),
+          )..generatePasswordPressed(),
         ),
         BlocProvider<HistoryBloc>(
           create: (BuildContext context) => HistoryBloc(),

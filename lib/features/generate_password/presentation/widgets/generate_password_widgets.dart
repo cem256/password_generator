@@ -8,7 +8,7 @@ class _GeneratedPassword extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        BlocBuilder<PasswordBloc, PasswordState>(
+        BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
           builder: (context, state) {
             return Flexible(
               child: Text(
@@ -23,7 +23,7 @@ class _GeneratedPassword extends StatelessWidget {
           padding: EdgeInsets.zero,
           alignment: Alignment.centerRight,
           icon: const Icon(Icons.content_copy),
-          onPressed: () => context.read<PasswordBloc>().add(PasswordCopied()),
+          onPressed: () => context.read<GeneratePasswordCubit>().copyPressed(),
         ),
       ],
     );
@@ -41,17 +41,17 @@ class _SliderWidget extends StatelessWidget {
           PasswordConstants.minLength.toStringAsFixed(0),
         ),
         Expanded(
-          child: BlocBuilder<PasswordBloc, PasswordState>(
+          child: BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
             builder: (context, state) {
               return Slider(
-                value: state.length,
+                value: state.passwordSettings.length,
                 min: PasswordConstants.minLength,
                 max: PasswordConstants.maxLength,
                 divisions: (PasswordConstants.maxLength - PasswordConstants.minLength).toInt(),
-                label: state.length.toStringAsFixed(0),
-                onChanged: (value) {
-                  if (!context.read<PasswordBloc>().isAllSettingsDisabled) {
-                    context.read<PasswordBloc>().add(PasswordLengthChanged(value));
+                label: state.passwordSettings.length.toStringAsFixed(0),
+                onChanged: (length) {
+                  if (!context.read<GeneratePasswordCubit>().state.passwordSettings.isAllSettingsDisabled) {
+                    context.read<GeneratePasswordCubit>().lengthChanged(length: length);
                   }
                 },
               );
@@ -74,12 +74,14 @@ class _UppercaseSwitch extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(LocaleKeys.lowercase.tr()),
-        BlocBuilder<PasswordBloc, PasswordState>(
+        Text(LocaleKeys.uppercase.tr()),
+        BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
           builder: (context, state) {
             return Switch(
-              value: state.hasUppercase,
-              onChanged: (value) => context.read<PasswordBloc>().add(UppercaseSwitchPressed()),
+              value: state.passwordSettings.hasUppercase,
+              onChanged: (hasUppercase) => context.read<GeneratePasswordCubit>().uppercaseChanged(
+                    hasUppercase: hasUppercase,
+                  ),
             );
           },
         ),
@@ -97,11 +99,12 @@ class _LowercaseSwitch extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(LocaleKeys.lowercase.tr()),
-        BlocBuilder<PasswordBloc, PasswordState>(
+        BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
           builder: (context, state) {
             return Switch(
-              value: state.hasLowercase,
-              onChanged: (value) => context.read<PasswordBloc>().add(LowercaseSwitchPressed()),
+              value: state.passwordSettings.hasLowercase,
+              onChanged: (hasLowercase) =>
+                  context.read<GeneratePasswordCubit>().lowercaseChanged(hasLowercase: hasLowercase),
             );
           },
         ),
@@ -119,11 +122,11 @@ class _NumbersSwitch extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(LocaleKeys.numbers.tr()),
-        BlocBuilder<PasswordBloc, PasswordState>(
+        BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
           builder: (context, state) {
             return Switch(
-              value: state.hasNumbers,
-              onChanged: (value) => context.read<PasswordBloc>().add(NumbersSwitchPressed()),
+              value: state.passwordSettings.hasNumbers,
+              onChanged: (hasNumbers) => context.read<GeneratePasswordCubit>().numbersChanged(hasNumbers: hasNumbers),
             );
           },
         ),
@@ -141,11 +144,11 @@ class _SpecialSwitch extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(LocaleKeys.special.tr()),
-        BlocBuilder<PasswordBloc, PasswordState>(
+        BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
           builder: (context, state) {
             return Switch(
-              value: state.hasSpecial,
-              onChanged: (value) => context.read<PasswordBloc>().add(SpecialSwitchPressed()),
+              value: state.passwordSettings.hasSpecial,
+              onChanged: (hasSpecial) => context.read<GeneratePasswordCubit>().specialChanged(hasSpecial: hasSpecial),
             );
           },
         ),

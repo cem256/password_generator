@@ -2,14 +2,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/extensions/context_extensions.dart';
-import '../../../core/manager/language/locale_keys.g.dart';
-import '../../../product/constants/password_constants.dart';
-import '../../../product/widgets/custom_elevated_button_widget.dart';
-import '../../../product/widgets/default_container_widget.dart';
-import '../../../product/widgets/drawer_widget.dart';
-import '../../password_history/bloc/history_bloc.dart';
-import '../bloc/password_bloc.dart';
+import '../../../../core/extensions/context_extensions.dart';
+import '../../../../core/manager/language/locale_keys.g.dart';
+
+import '../../../../product/constants/password_constants.dart';
+import '../../../../product/widgets/custom_elevated_button_widget.dart';
+import '../../../../product/widgets/default_container_widget.dart';
+import '../../../../product/widgets/drawer_widget.dart';
+import '../../../password_history/bloc/history_bloc.dart';
+import '../cubit/generate_password_cubit.dart';
 
 part '../widgets/generate_password_widgets.dart';
 
@@ -18,7 +19,7 @@ class GeneratePasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<PasswordBloc, PasswordState>(
+    return BlocListener<GeneratePasswordCubit, GeneratePasswordState>(
       listener: (context, state) {
         if (state.isCopied) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -59,7 +60,7 @@ class GeneratePasswordView extends StatelessWidget {
                 SizedBox(
                   height: context.mediumValue,
                 ),
-                BlocBuilder<PasswordBloc, PasswordState>(
+                BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
                   builder: (context, state) {
                     return Text(
                       "${LocaleKeys.length.tr().toUpperCase()} ${state.password.length}",
@@ -106,11 +107,11 @@ class GeneratePasswordView extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   height: context.highValue,
-                  child: BlocBuilder<PasswordBloc, PasswordState>(
+                  child: BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
                     builder: (context, state) {
                       return CustomElevatedButton(
-                          onPressed: () => context.read<PasswordBloc>().add(GeneratePassword()),
-                          isDisabled: context.read<PasswordBloc>().isAllSettingsDisabled,
+                          onPressed: () => context.read<GeneratePasswordCubit>().generatePasswordPressed(),
+                          isDisabled: state.passwordSettings.isAllSettingsDisabled,
                           child: Text(LocaleKeys.generate_password.tr().toUpperCase()));
                     },
                   ),
