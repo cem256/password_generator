@@ -4,17 +4,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:password_generator/product/theme/cubit/theme_cubit.dart';
+import 'package:password_generator/app/l10n/l10n_manager.dart';
+import 'package:password_generator/app/theme/app_theme.dart';
 
 import 'package:path_provider/path_provider.dart';
 
-import 'core/manager/language/language_manager.dart';
-import 'core/manager/route/app_router.gr.dart';
+import 'app/router/app_router.gr.dart';
+import 'app/theme/cubit/theme_cubit.dart';
 import 'features/generate_password/data/repository/generate_password_repository.dart';
 import 'features/generate_password/presentation/cubit/generate_password_cubit.dart';
 import 'features/password_history/bloc/history_bloc.dart';
-import 'product/constants/string_constants.dart';
-import 'product/theme/product_theme.dart';
+import 'app/constants/string_constants.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,9 +29,9 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: LanguageManager.instance.supportedLocales,
-      path: LanguageManager.instance.path,
-      fallbackLocale: LanguageManager.instance.en,
+      supportedLocales: L10nManager.instance.supportedLocales,
+      path: L10nManager.instance.path,
+      fallbackLocale: L10nManager.instance.en,
       child: PasswordGenerator(),
     ),
   );
@@ -66,8 +66,8 @@ class PasswordGenerator extends StatelessWidget {
 
             //theme
             themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
-            theme: ProductTheme.instance.lightTheme,
-            darkTheme: ProductTheme.instance.darkTheme,
+            theme: AppTheme.instance.lightTheme,
+            darkTheme: AppTheme.instance.darkTheme,
 
             //language
             localizationsDelegates: context.localizationDelegates,

@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:dartz/dartz.dart';
-import 'package:password_generator/product/constants/password_constants.dart';
+import 'package:password_generator/app/constants/password_constants.dart';
 
 import '../model/password_settings.dart';
 

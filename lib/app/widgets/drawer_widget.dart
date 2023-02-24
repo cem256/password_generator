@@ -1,13 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:password_generator/product/theme/cubit/theme_cubit.dart';
+
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../core/extensions/context_extensions.dart';
-import '../../core/manager/language/locale_keys.g.dart';
+
 import '../constants/asset_constants.dart';
 import '../constants/string_constants.dart';
+import '../l10n/locale_keys.g.dart';
+import '../theme/cubit/theme_cubit.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);

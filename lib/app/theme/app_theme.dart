@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../constants/view_constants.dart';
+import 'app_borders.dart';
 
-class ProductTheme {
-  static final ProductTheme _instance = ProductTheme._init();
-  static ProductTheme get instance => _instance;
+class AppTheme {
+  static final AppTheme _instance = AppTheme._init();
+  static AppTheme get instance => _instance;
 
-  ProductTheme._init();
+  AppTheme._init();
 
   ThemeData get darkTheme => ThemeData(
         fontFamily: _fontFamily,
@@ -36,11 +36,11 @@ class ProductTheme {
 
   final _highlightColor = Colors.transparent;
 
-  final _appBarTheme = const AppBarTheme(
+  final _appBarTheme = AppBarTheme(
     centerTitle: true,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
-        bottom: ViewConstants.radius,
+        bottom: AppBorders.radiusCircular,
       ),
     ),
   );

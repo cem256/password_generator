@@ -9,6 +9,9 @@ extension MediaQueryExtension on BuildContext {
   double get highValue => height * 0.06;
   double get veryHighValue => height * 0.1;
   double get veryHighValue2x => height * 0.2;
+  double get veryHighValue3x => height * 0.3;
+  double get veryHighValue4x => height * 0.4;
+  double get veryHighValue5x => height * 0.5;
 
   double dynamicWidth(double val) => width * val;
   double dynamicHeight(double val) => height * val;
@@ -55,4 +58,9 @@ extension DurationExtension on BuildContext {
   Duration get durationLow => const Duration(milliseconds: 250);
   Duration get durationDefault => const Duration(milliseconds: 500);
   Duration get durationHigh => const Duration(milliseconds: 1000);
+}
+
+extension ThemeExtension on BuildContext {
+  ThemeData get theme => Theme.of(this);
+  TextTheme get textTheme => theme.textTheme;
 }

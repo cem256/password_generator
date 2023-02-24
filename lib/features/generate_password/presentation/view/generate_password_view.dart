@@ -2,13 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../app/l10n/l10n.g.dart';
 import '../../../../core/extensions/context_extensions.dart';
-import '../../../../core/manager/language/locale_keys.g.dart';
 
-import '../../../../product/constants/password_constants.dart';
-import '../../../../product/widgets/custom_elevated_button_widget.dart';
-import '../../../../product/widgets/default_container_widget.dart';
-import '../../../../product/widgets/drawer_widget.dart';
+import '../../../../app/constants/password_constants.dart';
+import '../../../../app/widgets/custom_elevated_button_widget.dart';
+import '../../../../app/widgets/default_container_widget.dart';
+import '../../../../app/widgets/drawer_widget.dart';
 import '../../../password_history/bloc/history_bloc.dart';
 import '../cubit/generate_password_cubit.dart';
 

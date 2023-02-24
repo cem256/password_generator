@@ -2,10 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../app/l10n/l10n.g.dart';
+import '../../../app/widgets/drawer_widget.dart';
 import '../../../core/extensions/context_extensions.dart';
-import '../../../core/manager/language/locale_keys.g.dart';
-import '../../../product/widgets/default_container_widget.dart';
-import '../../../product/widgets/drawer_widget.dart';
+
+import '../../../app/widgets/default_container_widget.dart';
+
 import '../bloc/history_bloc.dart';
 
 class PasswordHistoryView extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:password_generator/product/constants/password_constants.dart';
+import 'package:password_generator/app/constants/password_constants.dart';
 
 part 'password_settings.freezed.dart';
 

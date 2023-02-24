@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/extensions/context_extensions.dart';
-import '../constants/view_constants.dart';
+import '../theme/app_borders.dart';
 
 class DefaultContainer extends StatelessWidget {
   const DefaultContainer({Key? key, required this.child}) : super(key: key);
@@ -14,7 +14,7 @@ class DefaultContainer extends StatelessWidget {
       padding: context.paddingHorizontalDefault,
       width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: ViewConstants.borderCircular,
+        borderRadius: AppBorders.borderRadiusCircular,
         color: Theme.of(context).focusColor,
       ),
       child: child,
