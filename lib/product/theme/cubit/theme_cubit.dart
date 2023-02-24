@@ -1,13 +1,13 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
-part 'theme_event.dart';
 part 'theme_state.dart';
+part 'theme_cubit.freezed.dart';
 
-class ThemeBloc extends HydratedBloc<ThemeChanged, ThemeState> {
-  ThemeBloc() : super(const ThemeState()) {
-    on<ThemeChanged>(_onThemeChanged);
-  }
-  void _onThemeChanged(ThemeChanged event, Emitter<ThemeState> emit) {
+class ThemeCubit extends HydratedCubit<ThemeState> {
+  ThemeCubit() : super(const ThemeState());
+
+  void themeChanged() {
     emit(ThemeState(isDark: !state.isDark));
   }
 

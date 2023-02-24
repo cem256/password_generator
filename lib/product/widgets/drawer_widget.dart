@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:password_generator/product/theme/cubit/theme_cubit.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../core/extensions/context_extensions.dart';
 import '../../core/manager/language/locale_keys.g.dart';
 import '../constants/asset_constants.dart';
 import '../constants/string_constants.dart';
-import '../theme/bloc/theme_bloc.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -30,10 +30,10 @@ class DrawerWidget extends StatelessWidget {
                         width: double.infinity,
                         child: Image.asset(AssetConstants.appIcon),
                       ),
-                      BlocBuilder<ThemeBloc, ThemeState>(
+                      BlocBuilder<ThemeCubit, ThemeState>(
                         builder: (context, state) {
                           return IconButton(
-                            onPressed: () => context.read<ThemeBloc>().add(const ThemeChanged()),
+                            onPressed: () => context.read<ThemeCubit>().themeChanged(),
                             icon: Icon(state.isDark ? Icons.brightness_high : Icons.dark_mode),
                           );
                         },

@@ -1,8 +1,10 @@
-part of 'theme_bloc.dart';
+part of 'theme_cubit.dart';
 
-class ThemeState {
-  final bool isDark;
-  const ThemeState({this.isDark = true});
+@freezed
+class ThemeState with _$ThemeState {
+  const factory ThemeState({@Default(false) bool isDark}) = _ThemeState;
+
+  const ThemeState._();
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
