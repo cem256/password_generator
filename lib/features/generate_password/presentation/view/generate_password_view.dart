@@ -8,7 +8,7 @@ import 'package:password_generator/app/widgets/default_container_widget.dart';
 import 'package:password_generator/app/widgets/drawer_widget.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/features/generate_password/presentation/cubit/generate_password_cubit.dart';
-import 'package:password_generator/features/password_history/bloc/history_bloc.dart';
+import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
 
 part '../widgets/generate_password_widgets.dart';
 
@@ -30,7 +30,7 @@ class GeneratePasswordView extends StatelessWidget {
               ),
             ),
           );
-          context.read<HistoryBloc>().add(AddToHistoryPressed(state.password));
+          context.read<PasswordHistoryCubit>().addToHistory(password: state.password);
         }
       },
       child: Scaffold(
@@ -108,7 +108,7 @@ class GeneratePasswordView extends StatelessWidget {
                   child: BlocBuilder<GeneratePasswordCubit, GeneratePasswordState>(
                     builder: (context, state) {
                       return CustomElevatedButton(
-                        onPressed: () => context.read<GeneratePasswordCubit>().generatePasswordPressed(),
+                        onPressed: () => context.read<GeneratePasswordCubit>().generatePassword(),
                         isDisabled: state.passwordSettings.isAllSettingsDisabled,
                         child: Text(LocaleKeys.generate_password.tr().toUpperCase()),
                       );

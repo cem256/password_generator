@@ -5,7 +5,7 @@ import 'package:password_generator/app/l10n/l10n.g.dart';
 import 'package:password_generator/app/widgets/default_container_widget.dart';
 import 'package:password_generator/app/widgets/drawer_widget.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
-import 'package:password_generator/features/password_history/bloc/history_bloc.dart';
+import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
 
 class PasswordHistoryView extends StatelessWidget {
   const PasswordHistoryView({super.key});
@@ -17,7 +17,7 @@ class PasswordHistoryView extends StatelessWidget {
         title: Text(LocaleKeys.history.tr().toUpperCase()),
       ),
       drawer: const DrawerWidget(),
-      body: BlocConsumer<HistoryBloc, HistoryState>(
+      body: BlocConsumer<PasswordHistoryCubit, PasswordHistoryState>(
         listener: (context, state) {
           if (state.isCopied) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -49,7 +49,7 @@ class PasswordHistoryView extends StatelessWidget {
             return Center(
               child: Text(
                 LocaleKeys.history_empty.tr(),
-                style: Theme.of(context).textTheme.titleMedium,
+                style: context.textTheme.titleMedium,
               ),
             );
           } else {
@@ -109,13 +109,13 @@ class _PasswordHistoryTile extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 alignment: Alignment.centerRight,
                 icon: const Icon(Icons.content_copy),
-                onPressed: () => context.read<HistoryBloc>().add(CopyPasswordPressed(password)),
+                onPressed: () => context.read<PasswordHistoryCubit>().copyPassword(password: password),
               ),
               IconButton(
                 padding: EdgeInsets.zero,
                 alignment: Alignment.centerRight,
                 icon: const Icon(Icons.delete_forever),
-                onPressed: () => context.read<HistoryBloc>().add(DeleteFromHistoryPressed(password)),
+                onPressed: () => context.read<PasswordHistoryCubit>().deleteFromHistory(password: password),
               ),
             ],
           )

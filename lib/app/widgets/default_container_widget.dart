@@ -14,7 +14,7 @@ class DefaultContainer extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: AppBorders.borderRadiusCircular,
-        color: Theme.of(context).focusColor,
+        color: context.theme.focusColor,
       ),
       child: child,
     );

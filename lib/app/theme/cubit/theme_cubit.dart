@@ -7,7 +7,7 @@ part 'theme_cubit.freezed.dart';
 class ThemeCubit extends HydratedCubit<ThemeState> {
   ThemeCubit() : super(const ThemeState());
 
-  void themeChanged() {
+  void changeTheme() {
     emit(ThemeState(isDark: !state.isDark));
   }
 

@@ -34,7 +34,7 @@ class DrawerWidget extends StatelessWidget {
                         BlocBuilder<ThemeCubit, ThemeState>(
                           builder: (context, state) {
                             return IconButton(
-                              onPressed: () => context.read<ThemeCubit>().themeChanged(),
+                              onPressed: () => context.read<ThemeCubit>().changeTheme(),
                               icon: Icon(state.isDark ? Icons.brightness_high : Icons.dark_mode),
                             );
                           },
@@ -46,7 +46,7 @@ class DrawerWidget extends StatelessWidget {
                     ),
                     Text(
                       StringConstants.appName,
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: context.textTheme.titleMedium,
                     ),
                   ],
                 ),

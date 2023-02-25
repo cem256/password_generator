@@ -87,7 +87,7 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
     );
   }
 
-  void generatePasswordPressed() {
+  void generatePassword() {
     final passwordSettings = state.passwordSettings;
     final result = _generatePasswordRepository.generatePassword(passwordSettings);
 
@@ -101,7 +101,7 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
     );
   }
 
-  Future<void> copyPressed() async {
+  Future<void> copyPassword() async {
     emit(state.copyWith(isCopied: true));
     await Clipboard.setData(ClipboardData(text: state.password));
     emit(state.copyWith(isCopied: false));

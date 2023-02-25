@@ -23,7 +23,7 @@ class _GeneratedPassword extends StatelessWidget {
           padding: EdgeInsets.zero,
           alignment: Alignment.centerRight,
           icon: const Icon(Icons.content_copy),
-          onPressed: () => context.read<GeneratePasswordCubit>().copyPressed(),
+          onPressed: () => context.read<GeneratePasswordCubit>().copyPassword(),
         ),
       ],
     );
