@@ -23,6 +23,6 @@ class PasswordSettings with _$PasswordSettings {
 
   const PasswordSettings._();
 
-  bool get isAllSettingsDisabled =>
+  bool get isAllOptionsDisabled =>
       hasUppercase == false && hasLowercase == false && hasNumbers == false && hasSpecial == false;
 }

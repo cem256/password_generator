@@ -6,7 +6,8 @@ import 'package:password_generator/app/constants/string_constants.dart';
 import 'package:password_generator/app/l10n/l10n.g.dart';
 import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:password_generator/core/extensions/widget_extensions.dart';
+import 'package:password_generator/core/utils/url_launcher/url_launcher_utils.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -34,21 +35,18 @@ class DrawerWidget extends StatelessWidget {
                         BlocBuilder<ThemeCubit, ThemeState>(
                           builder: (context, state) {
                             return IconButton(
-                              onPressed: () => context.read<ThemeCubit>().changeTheme(),
                               icon: Icon(state.isDark ? Icons.brightness_high : Icons.dark_mode),
+                              onPressed: () => context.read<ThemeCubit>().changeTheme(),
                             );
                           },
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: context.mediumValue,
-                    ),
                     Text(
                       StringConstants.appName,
                       style: context.textTheme.titleMedium,
                     ),
-                  ],
+                  ].spaceBetween(height: context.mediumValue),
                 ),
               ),
               SizedBox(
@@ -65,9 +63,7 @@ class DrawerWidget extends StatelessWidget {
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(Icons.privacy_tip),
                 title: Text(LocaleKeys.privacy.tr()),
-                onTap: () async {
-                  await launchUrlString(StringConstants.privacyPolicyUrl);
-                },
+                onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.privacyPolicyUrl),
               ),
               const Divider(),
             ],

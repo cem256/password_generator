@@ -10,8 +10,8 @@ class DefaultContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: context.paddingHorizontalDefault,
       width: double.infinity,
+      padding: context.paddingHorizontalDefault,
       decoration: BoxDecoration(
         borderRadius: AppBorders.borderRadiusCircular,
         color: context.theme.focusColor,

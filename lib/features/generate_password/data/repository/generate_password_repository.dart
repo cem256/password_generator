@@ -14,7 +14,7 @@ abstract class GeneratePasswordRepository {
 class GeneratePasswordRepositoryImpl implements GeneratePasswordRepository {
   @override
   Either<void, String> generatePassword(PasswordSettings passwordSettings) {
-    if (passwordSettings.isAllSettingsDisabled) {
+    if (passwordSettings.isAllOptionsDisabled) {
       return left(null);
     }
     final password = StringBuffer();

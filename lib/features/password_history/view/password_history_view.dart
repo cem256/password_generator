@@ -5,6 +5,8 @@ import 'package:password_generator/app/l10n/l10n.g.dart';
 import 'package:password_generator/app/widgets/default_container_widget.dart';
 import 'package:password_generator/app/widgets/drawer_widget.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
+import 'package:password_generator/core/extensions/widget_extensions.dart';
+import 'package:password_generator/core/utils/snackbar/snackbar_utils.dart';
 import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
 
 class PasswordHistoryView extends StatelessWidget {
@@ -14,33 +16,23 @@ class PasswordHistoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(LocaleKeys.history.tr().toUpperCase()),
+        title: Text(
+          LocaleKeys.history.tr().toUpperCase(),
+        ),
       ),
       drawer: const DrawerWidget(),
       body: BlocConsumer<PasswordHistoryCubit, PasswordHistoryState>(
         listener: (context, state) {
           if (state.isCopied) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                duration: context.durationDefault,
-                margin: context.paddingAllVeryHigh,
-                content: Text(
-                  LocaleKeys.password_copied.tr(),
-                  textAlign: TextAlign.center,
-                ),
-              ),
+            SnackbarUtils.showSnackbar(
+              context: context,
+              message: LocaleKeys.password_copied.tr(),
             );
           }
           if (state.isDeleted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                duration: context.durationDefault,
-                margin: context.paddingAllVeryHigh,
-                content: Text(
-                  LocaleKeys.password_deleted.tr(),
-                  textAlign: TextAlign.center,
-                ),
-              ),
+            SnackbarUtils.showSnackbar(
+              context: context,
+              message: LocaleKeys.password_deleted.tr(),
             );
           }
         },
@@ -53,7 +45,7 @@ class PasswordHistoryView extends StatelessWidget {
               ),
             );
           } else {
-            return Container(
+            return Padding(
               padding: context.paddingAllDefault,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,21 +53,14 @@ class PasswordHistoryView extends StatelessWidget {
                   Text(
                     LocaleKeys.password_history.tr().toUpperCase(),
                   ),
-                  SizedBox(
-                    height: context.lowValue,
-                  ),
                   Expanded(
                     child: ListView.separated(
-                      separatorBuilder: (context, index) {
-                        return SizedBox(height: context.mediumValue);
-                      },
                       itemCount: state.history.length,
-                      itemBuilder: (context, index) {
-                        return _PasswordHistoryTile(password: state.history[index]);
-                      },
+                      separatorBuilder: (context, index) => SizedBox(height: context.mediumValue),
+                      itemBuilder: (context, index) => _PasswordHistoryTile(password: state.history[index]),
                     ),
                   ),
-                ],
+                ].spaceBetween(height: context.lowValue),
               ),
             );
           }
