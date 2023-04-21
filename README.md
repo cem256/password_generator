@@ -21,6 +21,8 @@ Password Generator generates secure passwords of specified length and settings.
   - [AutoRoute](https://pub.dev/packages/auto_route)
 - Localization
   - [EasyLocalization](https://pub.dev/packages/easy_localization)
+- Caching
+  - [HydratedBloc](https://pub.dev/packages/hydrated_bloc)
 
 ## Preview
 
