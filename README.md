@@ -10,6 +10,18 @@ Password Generator generates secure passwords of specified length and settings.
 - [Flutter](https://flutter.dev/)
 - [Dart](https://dart.dev/)
 
+## Packages
+- State Management
+  - [Bloc](https://pub.dev/packages/flutter_bloc)
+- Dart Data Class Generation
+  - [Freezed](https://pub.dev/packages/freezed)
+- Functional Programming
+  - [Dartz](https://pub.dev/packages/dartz)
+- Navigation
+  - [AutoRoute](https://pub.dev/packages/auto_route)
+- Localization
+  - [EasyLocalization](https://pub.dev/packages/easy_localization)
+
 ## Preview
 
 <p align='center'>
