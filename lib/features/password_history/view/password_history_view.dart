@@ -3,8 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:password_generator/app/l10n/app_l10n.g.dart';
-import 'package:password_generator/app/widgets/default_container_widget.dart';
-import 'package:password_generator/app/widgets/drawer_widget.dart';
+import 'package:password_generator/app/widgets/container/custom_container.dart';
+import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/core/extensions/widget_extensions.dart';
 import 'package:password_generator/core/utils/snackbar/snackbar_utils.dart';
@@ -22,7 +22,7 @@ class PasswordHistoryView extends StatelessWidget {
           LocaleKeys.history.tr().toUpperCase(),
         ),
       ),
-      drawer: const DrawerWidget(),
+      drawer: const CustomDrawer(),
       body: BlocConsumer<PasswordHistoryCubit, PasswordHistoryState>(
         listener: (context, state) {
           if (state.isCopied) {
@@ -79,7 +79,7 @@ class _PasswordHistoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultContainer(
+    return CustomContainer(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:password_generator/app/theme/constants/theme_constants.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 
-class DefaultContainer extends StatelessWidget {
-  const DefaultContainer({required this.child, super.key});
+class CustomContainer extends StatelessWidget {
+  const CustomContainer({required this.child, super.key});
 
   final Widget child;
 

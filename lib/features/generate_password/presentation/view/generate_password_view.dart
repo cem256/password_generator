@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:password_generator/app/constants/password_constants.dart';
 import 'package:password_generator/app/l10n/app_l10n.g.dart';
-import 'package:password_generator/app/widgets/default_container_widget.dart';
-import 'package:password_generator/app/widgets/drawer_widget.dart';
+import 'package:password_generator/app/widgets/container/custom_container.dart';
+import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/core/extensions/widget_extensions.dart';
 import 'package:password_generator/core/utils/snackbar/snackbar_utils.dart';
@@ -36,7 +36,7 @@ class GeneratePasswordView extends StatelessWidget {
             LocaleKeys.generate_password.tr().toUpperCase(),
           ),
         ),
-        drawer: const DrawerWidget(),
+        drawer: const CustomDrawer(),
         body: Padding(
           padding: context.paddingAllDefault,
           child: Column(
@@ -45,41 +45,27 @@ class GeneratePasswordView extends StatelessWidget {
               Text(
                 LocaleKeys.generated_password.tr().toUpperCase(),
               ),
-              const DefaultContainer(
-                child: _GeneratedPassword(),
-              ),
+              const _GeneratedPassword(),
               SizedBox(
                 height: context.lowValue,
               ),
               BlocSelector<GeneratePasswordCubit, GeneratePasswordState, int>(
                 selector: (state) => state.password.length,
                 builder: (context, state) {
-                  return Text(
-                    '${LocaleKeys.length.tr().toUpperCase()} $state',
-                  );
+                  return Text('${LocaleKeys.length.tr().toUpperCase()} $state');
                 },
               ),
-              const DefaultContainer(
-                child: _SliderWidget(),
-              ),
+              const _SliderWidget(),
               SizedBox(
                 height: context.lowValue,
               ),
               Text(
                 LocaleKeys.settings.tr().toUpperCase(),
               ),
-              const DefaultContainer(
-                child: _UppercaseSwitch(),
-              ),
-              const DefaultContainer(
-                child: _LowercaseSwitch(),
-              ),
-              const DefaultContainer(
-                child: _NumbersSwitch(),
-              ),
-              const DefaultContainer(
-                child: _SpecialSwitch(),
-              ),
+              const _UppercaseSwitch(),
+              const _LowercaseSwitch(),
+              const _NumbersSwitch(),
+              const _SpecialSwitch(),
               const Spacer(),
               Row(
                 children: [
