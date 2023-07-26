@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:password_generator/app/constants/asset_constants.dart';
 import 'package:password_generator/app/constants/string_constants.dart';
-import 'package:password_generator/app/l10n/l10n.g.dart';
+import 'package:password_generator/app/l10n/app_l10n.g.dart';
 import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/core/extensions/widget_extensions.dart';

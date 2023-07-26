@@ -5,11 +5,11 @@ import 'package:password_generator/app/constants/password_constants.dart';
 
 import 'package:password_generator/features/generate_password/data/model/password_settings.dart';
 
-abstract class GeneratePasswordRepository {
+abstract interface class GeneratePasswordRepository {
   Either<void, String> generatePassword(PasswordSettings passwordSettings);
 }
 
-class GeneratePasswordRepositoryImpl implements GeneratePasswordRepository {
+final class GeneratePasswordRepositoryImpl implements GeneratePasswordRepository {
   @override
   Either<void, String> generatePassword(PasswordSettings passwordSettings) {
     if (passwordSettings.isAllOptionsDisabled) {

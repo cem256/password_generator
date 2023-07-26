@@ -5,11 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:password_generator/app/constants/string_constants.dart';
-import 'package:password_generator/app/l10n/l10n_manager.dart';
+import 'package:password_generator/app/l10n/app_l10n.dart';
 import 'package:password_generator/app/router/app_router.dart';
 import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
 import 'package:password_generator/app/theme/dark/app_theme_dark.dart';
 import 'package:password_generator/app/theme/light/app_theme_light.dart';
+import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/features/generate_password/data/repository/generate_password_repository.dart';
 import 'package:password_generator/features/generate_password/presentation/cubit/generate_password_cubit.dart';
 import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
@@ -17,20 +18,24 @@ import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Initialize Flutter Native Splash
   FlutterNativeSplash();
-
+  // Initialize Hydrated Bloc
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
-
+  // Initialize Easy Localization
   await EasyLocalization.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // Set Screen Orientation
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
 
   runApp(
     EasyLocalization(
-      supportedLocales: L10nManager.instance.supportedLocales,
-      path: L10nManager.instance.path,
-      fallbackLocale: L10nManager.instance.en,
+      supportedLocales: AppL10n.supportedLocales,
+      path: AppL10n.path,
+      fallbackLocale: AppL10n.en,
       child: PasswordGenerator(),
     ),
   );
@@ -43,6 +48,7 @@ class PasswordGenerator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Injecting Blocs to the widget tree
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeCubit>(
@@ -63,19 +69,25 @@ class PasswordGenerator extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: StringConstants.appName,
 
-            //theme
+            // Theme
             theme: AppThemeLight().theme,
             darkTheme: AppThemeDark().theme,
             themeMode: themeState.themeMode,
 
-            //language
+            // Language
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
 
-            // routing
+            // Routing
             routerDelegate: _appRouter.delegate(),
             routeInformationParser: _appRouter.defaultRouteParser(),
+
+            builder: (context, child) => MediaQuery(
+              // Disables font scaling and bold text
+              data: context.mediaQuery.copyWith(textScaleFactor: 1, boldText: false),
+              child: child!,
+            ),
           );
         },
       ),
