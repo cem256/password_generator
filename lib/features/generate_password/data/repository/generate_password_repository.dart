@@ -1,5 +1,3 @@
-// ignore_for_file: one_member_abstracts
-
 import 'dart:math';
 
 import 'package:dartz/dartz.dart';

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:password_generator/app/l10n/l10n.g.dart';
 import 'package:password_generator/app/router/app_router.gr.dart';
 
+@RoutePage()
 class NavbarView extends StatelessWidget {
   const NavbarView({super.key});
 

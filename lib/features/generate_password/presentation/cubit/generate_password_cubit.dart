@@ -1,7 +1,7 @@
 // ignore_for_file: cascade_invocations
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:password_generator/features/generate_password/data/model/password_settings.dart';

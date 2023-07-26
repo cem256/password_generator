@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:password_generator/core/extensions/widget_extensions.dart';
 import 'package:password_generator/core/utils/snackbar/snackbar_utils.dart';
 import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
 
+@RoutePage()
 class PasswordHistoryView extends StatelessWidget {
   const PasswordHistoryView({super.key});
 

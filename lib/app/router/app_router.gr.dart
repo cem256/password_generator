@@ -1,104 +1,85 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i4;
-import 'package:flutter/material.dart' as _i5;
-
-import '../../features/_navbar/view/navbar_view.dart' as _i1;
-import '../../features/generate_password/presentation/view/generate_password_view.dart'
+import 'package:password_generator/features/_navbar/view/navbar_view.dart'
+    as _i3;
+import 'package:password_generator/features/generate_password/presentation/view/generate_password_view.dart'
     as _i2;
-import '../../features/password_history/view/password_history_view.dart' as _i3;
+import 'package:password_generator/features/password_history/view/password_history_view.dart'
+    as _i1;
 
-class AppRouter extends _i4.RootStackRouter {
-  AppRouter([_i5.GlobalKey<_i5.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+abstract class $AppRouter extends _i4.RootStackRouter {
+  $AppRouter({super.navigatorKey});
 
   @override
   final Map<String, _i4.PageFactory> pagesMap = {
-    NavbarRoute.name: (routeData) {
-      return _i4.MaterialPageX<dynamic>(
+    PasswordHistoryRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.NavbarView(),
+        child: const _i1.PasswordHistoryView(),
       );
     },
     GeneratePasswordRoute.name: (routeData) {
-      return _i4.MaterialPageX<dynamic>(
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i2.GeneratePasswordView(),
       );
     },
-    PasswordHistoryRoute.name: (routeData) {
-      return _i4.MaterialPageX<dynamic>(
+    NavbarRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.PasswordHistoryView(),
+        child: const _i3.NavbarView(),
       );
     },
   };
-
-  @override
-  List<_i4.RouteConfig> get routes => [
-        _i4.RouteConfig(
-          NavbarRoute.name,
-          path: '/',
-          children: [
-            _i4.RouteConfig(
-              GeneratePasswordRoute.name,
-              path: '',
-              parent: NavbarRoute.name,
-            ),
-            _i4.RouteConfig(
-              PasswordHistoryRoute.name,
-              path: 'password-history-view',
-              parent: NavbarRoute.name,
-            ),
-          ],
-        )
-      ];
 }
 
 /// generated route for
-/// [_i1.NavbarView]
-class NavbarRoute extends _i4.PageRouteInfo<void> {
-  const NavbarRoute({List<_i4.PageRouteInfo>? children})
+/// [_i1.PasswordHistoryView]
+class PasswordHistoryRoute extends _i4.PageRouteInfo<void> {
+  const PasswordHistoryRoute({List<_i4.PageRouteInfo>? children})
       : super(
-          NavbarRoute.name,
-          path: '/',
+          PasswordHistoryRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'NavbarRoute';
+  static const String name = 'PasswordHistoryRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i2.GeneratePasswordView]
 class GeneratePasswordRoute extends _i4.PageRouteInfo<void> {
-  const GeneratePasswordRoute()
+  const GeneratePasswordRoute({List<_i4.PageRouteInfo>? children})
       : super(
           GeneratePasswordRoute.name,
-          path: '',
+          initialChildren: children,
         );
 
   static const String name = 'GeneratePasswordRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.PasswordHistoryView]
-class PasswordHistoryRoute extends _i4.PageRouteInfo<void> {
-  const PasswordHistoryRoute()
+/// [_i3.NavbarView]
+class NavbarRoute extends _i4.PageRouteInfo<void> {
+  const NavbarRoute({List<_i4.PageRouteInfo>? children})
       : super(
-          PasswordHistoryRoute.name,
-          path: 'password-history-view',
+          NavbarRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'PasswordHistoryRoute';
+  static const String name = 'NavbarRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }

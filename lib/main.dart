@@ -6,7 +6,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:password_generator/app/constants/string_constants.dart';
 import 'package:password_generator/app/l10n/l10n_manager.dart';
-import 'package:password_generator/app/router/app_router.gr.dart';
+import 'package:password_generator/app/router/app_router.dart';
 import 'package:password_generator/app/theme/app_theme.dart';
 import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
 import 'package:password_generator/features/generate_password/data/repository/generate_password_repository.dart';
