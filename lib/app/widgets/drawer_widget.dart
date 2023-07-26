@@ -32,13 +32,9 @@ class DrawerWidget extends StatelessWidget {
                           width: double.infinity,
                           child: Image.asset(AssetConstants.appIcon),
                         ),
-                        BlocBuilder<ThemeCubit, ThemeState>(
-                          builder: (context, state) {
-                            return IconButton(
-                              icon: Icon(state.isDark ? Icons.brightness_high : Icons.dark_mode),
-                              onPressed: () => context.read<ThemeCubit>().changeTheme(),
-                            );
-                          },
+                        IconButton(
+                          icon: Icon(context.brightness == Brightness.dark ? Icons.light_mode : Icons.dark_mode),
+                          onPressed: () => context.read<ThemeCubit>().changeTheme(brightness: context.brightness),
                         ),
                       ],
                     ),
@@ -46,11 +42,11 @@ class DrawerWidget extends StatelessWidget {
                       StringConstants.appName,
                       style: context.textTheme.titleMedium,
                     ),
-                  ].spaceBetween(height: context.mediumValue),
+                  ].spaceBetween(height: context.defaultValue),
                 ),
               ),
               SizedBox(
-                height: context.mediumValue,
+                height: context.defaultValue,
               ),
               const Divider(),
               ListTile(

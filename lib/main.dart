@@ -7,8 +7,9 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:password_generator/app/constants/string_constants.dart';
 import 'package:password_generator/app/l10n/l10n_manager.dart';
 import 'package:password_generator/app/router/app_router.dart';
-import 'package:password_generator/app/theme/app_theme.dart';
 import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
+import 'package:password_generator/app/theme/dark/app_theme_dark.dart';
+import 'package:password_generator/app/theme/light/app_theme_light.dart';
 import 'package:password_generator/features/generate_password/data/repository/generate_password_repository.dart';
 import 'package:password_generator/features/generate_password/presentation/cubit/generate_password_cubit.dart';
 import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
@@ -57,15 +58,15 @@ class PasswordGenerator extends StatelessWidget {
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, state) {
+        builder: (context, themeState) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: StringConstants.appName,
 
             //theme
-            themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
-            theme: AppTheme.instance.lightTheme,
-            darkTheme: AppTheme.instance.darkTheme,
+            theme: AppThemeLight().theme,
+            darkTheme: AppThemeDark().theme,
+            themeMode: themeState.themeMode,
 
             //language
             localizationsDelegates: context.localizationDelegates,

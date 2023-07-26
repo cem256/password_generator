@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:password_generator/app/theme/app_borders.dart';
+import 'package:password_generator/app/theme/theme_constants.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 
 class DefaultContainer extends StatelessWidget {
@@ -13,7 +13,7 @@ class DefaultContainer extends StatelessWidget {
       width: double.infinity,
       padding: context.paddingHorizontalDefault,
       decoration: BoxDecoration(
-        borderRadius: AppBorders.borderRadiusCircular,
+        borderRadius: ThemeConstants.borderRadiusCircular,
         color: context.theme.focusColor,
       ),
       child: child,
