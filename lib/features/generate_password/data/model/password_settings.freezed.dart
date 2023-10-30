@@ -86,11 +86,11 @@ class _$PasswordSettingsCopyWithImpl<$Res, $Val extends PasswordSettings>
 }
 
 /// @nodoc
-abstract class _$$_PasswordSettingsCopyWith<$Res>
+abstract class _$$PasswordSettingsImplCopyWith<$Res>
     implements $PasswordSettingsCopyWith<$Res> {
-  factory _$$_PasswordSettingsCopyWith(
-          _$_PasswordSettings value, $Res Function(_$_PasswordSettings) then) =
-      __$$_PasswordSettingsCopyWithImpl<$Res>;
+  factory _$$PasswordSettingsImplCopyWith(_$PasswordSettingsImpl value,
+          $Res Function(_$PasswordSettingsImpl) then) =
+      __$$PasswordSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +102,11 @@ abstract class _$$_PasswordSettingsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PasswordSettingsCopyWithImpl<$Res>
-    extends _$PasswordSettingsCopyWithImpl<$Res, _$_PasswordSettings>
-    implements _$$_PasswordSettingsCopyWith<$Res> {
-  __$$_PasswordSettingsCopyWithImpl(
-      _$_PasswordSettings _value, $Res Function(_$_PasswordSettings) _then)
+class __$$PasswordSettingsImplCopyWithImpl<$Res>
+    extends _$PasswordSettingsCopyWithImpl<$Res, _$PasswordSettingsImpl>
+    implements _$$PasswordSettingsImplCopyWith<$Res> {
+  __$$PasswordSettingsImplCopyWithImpl(_$PasswordSettingsImpl _value,
+      $Res Function(_$PasswordSettingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_PasswordSettingsCopyWithImpl<$Res>
     Object? hasNumbers = null,
     Object? hasSpecial = null,
   }) {
-    return _then(_$_PasswordSettings(
+    return _then(_$PasswordSettingsImpl(
       length: null == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_PasswordSettingsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PasswordSettings extends _PasswordSettings {
-  const _$_PasswordSettings(
+class _$PasswordSettingsImpl extends _PasswordSettings {
+  const _$PasswordSettingsImpl(
       {required this.length,
       required this.hasLowercase,
       required this.hasUppercase,
@@ -174,7 +174,7 @@ class _$_PasswordSettings extends _PasswordSettings {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PasswordSettings &&
+            other is _$PasswordSettingsImpl &&
             (identical(other.length, length) || other.length == length) &&
             (identical(other.hasLowercase, hasLowercase) ||
                 other.hasLowercase == hasLowercase) &&
@@ -193,8 +193,9 @@ class _$_PasswordSettings extends _PasswordSettings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PasswordSettingsCopyWith<_$_PasswordSettings> get copyWith =>
-      __$$_PasswordSettingsCopyWithImpl<_$_PasswordSettings>(this, _$identity);
+  _$$PasswordSettingsImplCopyWith<_$PasswordSettingsImpl> get copyWith =>
+      __$$PasswordSettingsImplCopyWithImpl<_$PasswordSettingsImpl>(
+          this, _$identity);
 }
 
 abstract class _PasswordSettings extends PasswordSettings {
@@ -203,7 +204,7 @@ abstract class _PasswordSettings extends PasswordSettings {
       required final bool hasLowercase,
       required final bool hasUppercase,
       required final bool hasNumbers,
-      required final bool hasSpecial}) = _$_PasswordSettings;
+      required final bool hasSpecial}) = _$PasswordSettingsImpl;
   const _PasswordSettings._() : super._();
 
   @override
@@ -218,6 +219,6 @@ abstract class _PasswordSettings extends PasswordSettings {
   bool get hasSpecial;
   @override
   @JsonKey(ignore: true)
-  _$$_PasswordSettingsCopyWith<_$_PasswordSettings> get copyWith =>
+  _$$PasswordSettingsImplCopyWith<_$PasswordSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

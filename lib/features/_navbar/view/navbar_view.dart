@@ -27,7 +27,7 @@ class NavbarView extends StatelessWidget {
             BottomNavigationBarItem(
               icon: const Icon(Icons.history),
               label: LocaleKeys.history.tr(),
-            )
+            ),
           ],
         );
       },

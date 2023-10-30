@@ -57,22 +57,22 @@ class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
 }
 
 /// @nodoc
-abstract class _$$_ThemeStateCopyWith<$Res>
+abstract class _$$ThemeStateImplCopyWith<$Res>
     implements $ThemeStateCopyWith<$Res> {
-  factory _$$_ThemeStateCopyWith(
-          _$_ThemeState value, $Res Function(_$_ThemeState) then) =
-      __$$_ThemeStateCopyWithImpl<$Res>;
+  factory _$$ThemeStateImplCopyWith(
+          _$ThemeStateImpl value, $Res Function(_$ThemeStateImpl) then) =
+      __$$ThemeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ThemeMode themeMode});
 }
 
 /// @nodoc
-class __$$_ThemeStateCopyWithImpl<$Res>
-    extends _$ThemeStateCopyWithImpl<$Res, _$_ThemeState>
-    implements _$$_ThemeStateCopyWith<$Res> {
-  __$$_ThemeStateCopyWithImpl(
-      _$_ThemeState _value, $Res Function(_$_ThemeState) _then)
+class __$$ThemeStateImplCopyWithImpl<$Res>
+    extends _$ThemeStateCopyWithImpl<$Res, _$ThemeStateImpl>
+    implements _$$ThemeStateImplCopyWith<$Res> {
+  __$$ThemeStateImplCopyWithImpl(
+      _$ThemeStateImpl _value, $Res Function(_$ThemeStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_ThemeStateCopyWithImpl<$Res>
   $Res call({
     Object? themeMode = null,
   }) {
-    return _then(_$_ThemeState(
+    return _then(_$ThemeStateImpl(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_ThemeStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ThemeState extends _ThemeState {
-  _$_ThemeState({required this.themeMode}) : super._();
+class _$ThemeStateImpl extends _ThemeState {
+  _$ThemeStateImpl({required this.themeMode}) : super._();
 
   @override
   final ThemeMode themeMode;
@@ -106,7 +106,7 @@ class _$_ThemeState extends _ThemeState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThemeState &&
+            other is _$ThemeStateImpl &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode));
   }
@@ -117,18 +117,18 @@ class _$_ThemeState extends _ThemeState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThemeStateCopyWith<_$_ThemeState> get copyWith =>
-      __$$_ThemeStateCopyWithImpl<_$_ThemeState>(this, _$identity);
+  _$$ThemeStateImplCopyWith<_$ThemeStateImpl> get copyWith =>
+      __$$ThemeStateImplCopyWithImpl<_$ThemeStateImpl>(this, _$identity);
 }
 
 abstract class _ThemeState extends ThemeState {
-  factory _ThemeState({required final ThemeMode themeMode}) = _$_ThemeState;
+  factory _ThemeState({required final ThemeMode themeMode}) = _$ThemeStateImpl;
   _ThemeState._() : super._();
 
   @override
   ThemeMode get themeMode;
   @override
   @JsonKey(ignore: true)
-  _$$_ThemeStateCopyWith<_$_ThemeState> get copyWith =>
+  _$$ThemeStateImplCopyWith<_$ThemeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

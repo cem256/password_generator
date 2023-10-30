@@ -105,7 +105,7 @@ class _PasswordHistoryTile extends StatelessWidget {
                 onPressed: () => context.read<PasswordHistoryCubit>().deleteFromHistory(password: password),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
