@@ -81,11 +81,12 @@ class _$GeneratePasswordStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GeneratePasswordStateCopyWith<$Res>
+abstract class _$$GeneratePasswordStateImplCopyWith<$Res>
     implements $GeneratePasswordStateCopyWith<$Res> {
-  factory _$$_GeneratePasswordStateCopyWith(_$_GeneratePasswordState value,
-          $Res Function(_$_GeneratePasswordState) then) =
-      __$$_GeneratePasswordStateCopyWithImpl<$Res>;
+  factory _$$GeneratePasswordStateImplCopyWith(
+          _$GeneratePasswordStateImpl value,
+          $Res Function(_$GeneratePasswordStateImpl) then) =
+      __$$GeneratePasswordStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -96,11 +97,12 @@ abstract class _$$_GeneratePasswordStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GeneratePasswordStateCopyWithImpl<$Res>
-    extends _$GeneratePasswordStateCopyWithImpl<$Res, _$_GeneratePasswordState>
-    implements _$$_GeneratePasswordStateCopyWith<$Res> {
-  __$$_GeneratePasswordStateCopyWithImpl(_$_GeneratePasswordState _value,
-      $Res Function(_$_GeneratePasswordState) _then)
+class __$$GeneratePasswordStateImplCopyWithImpl<$Res>
+    extends _$GeneratePasswordStateCopyWithImpl<$Res,
+        _$GeneratePasswordStateImpl>
+    implements _$$GeneratePasswordStateImplCopyWith<$Res> {
+  __$$GeneratePasswordStateImplCopyWithImpl(_$GeneratePasswordStateImpl _value,
+      $Res Function(_$GeneratePasswordStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +112,7 @@ class __$$_GeneratePasswordStateCopyWithImpl<$Res>
     Object? password = null,
     Object? isCopied = null,
   }) {
-    return _then(_$_GeneratePasswordState(
+    return _then(_$GeneratePasswordStateImpl(
       passwordSettings: null == passwordSettings
           ? _value.passwordSettings
           : passwordSettings // ignore: cast_nullable_to_non_nullable
@@ -129,8 +131,8 @@ class __$$_GeneratePasswordStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GeneratePasswordState implements _GeneratePasswordState {
-  const _$_GeneratePasswordState(
+class _$GeneratePasswordStateImpl implements _GeneratePasswordState {
+  const _$GeneratePasswordStateImpl(
       {required this.passwordSettings,
       required this.password,
       required this.isCopied});
@@ -151,7 +153,7 @@ class _$_GeneratePasswordState implements _GeneratePasswordState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GeneratePasswordState &&
+            other is _$GeneratePasswordStateImpl &&
             (identical(other.passwordSettings, passwordSettings) ||
                 other.passwordSettings == passwordSettings) &&
             (identical(other.password, password) ||
@@ -167,16 +169,16 @@ class _$_GeneratePasswordState implements _GeneratePasswordState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GeneratePasswordStateCopyWith<_$_GeneratePasswordState> get copyWith =>
-      __$$_GeneratePasswordStateCopyWithImpl<_$_GeneratePasswordState>(
-          this, _$identity);
+  _$$GeneratePasswordStateImplCopyWith<_$GeneratePasswordStateImpl>
+      get copyWith => __$$GeneratePasswordStateImplCopyWithImpl<
+          _$GeneratePasswordStateImpl>(this, _$identity);
 }
 
 abstract class _GeneratePasswordState implements GeneratePasswordState {
   const factory _GeneratePasswordState(
       {required final PasswordSettings passwordSettings,
       required final String password,
-      required final bool isCopied}) = _$_GeneratePasswordState;
+      required final bool isCopied}) = _$GeneratePasswordStateImpl;
 
   @override
   PasswordSettings get passwordSettings;
@@ -186,6 +188,6 @@ abstract class _GeneratePasswordState implements GeneratePasswordState {
   bool get isCopied;
   @override
   @JsonKey(ignore: true)
-  _$$_GeneratePasswordStateCopyWith<_$_GeneratePasswordState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GeneratePasswordStateImplCopyWith<_$GeneratePasswordStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

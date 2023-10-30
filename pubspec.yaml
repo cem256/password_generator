@@ -1,8 +1,8 @@
 name: password_generator
-version: 1.0.6+7
+version: 1.0.7+8
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.1.5 <4.0.0"
 
 dependencies:
   flutter:
@@ -13,17 +13,16 @@ dependencies:
   hydrated_bloc: ^9.1.2
 
   #utility
-  share_plus: ^7.0.2
-  in_app_review: ^2.0.6
-  url_launcher: ^6.1.12
-  path_provider: ^2.0.15
-  
+  share_plus: ^7.2.1
+  in_app_review: ^2.0.8
+  url_launcher: ^6.2.1
+  path_provider: ^2.1.1
 
   #localization
-  easy_localization: ^3.0.2
+  easy_localization: ^3.0.3
 
   #routing
-  auto_route: ^7.7.1
+  auto_route: ^7.8.4
 
   #functional programming
   dartz: ^0.10.1
@@ -33,24 +32,25 @@ dependencies:
 
   #app icons
   flutter_launcher_icons: ^0.13.1
-  flutter_native_splash: ^2.3.1
+  flutter_native_splash: ^2.3.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   #linter
-  very_good_analysis: ^5.0.0+1
+  very_good_analysis: ^5.1.0
 
   #code gen
-  freezed: ^2.4.1
+  freezed: ^2.4.5
   build_runner: ^2.4.6
-  auto_route_generator: ^7.2.0
+  auto_route_generator: ^7.3.2
 
 flutter_launcher_icons:
   android: true
   ios: true
   remove_alpha_ios: true
+  min_sdk_android: 21
   image_path: "assets/icons/generator_app_icon.png"
   adaptive_icon_background: "#1E1B16"
   adaptive_icon_foreground: "assets/icons/generator_app_icon_foreground.png"
