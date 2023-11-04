@@ -38,8 +38,9 @@ You can help translate this app to other languages!
 
 1. Fork this repository
 2. Choose one
+    - Add missing translations in existing languages: Track `missing_translations.json` in [lib/app/l10n/arb][l10n]
    - Improve translations in existing languages: Update `<locale>.arb` in [lib/app/l10n/arb][l10n]
-   - Add new languages: Create a new `<locale>.arb` file; see also: [locale codes][locale codes].
+   - Add new languages: Create a new `<locale>.arb` file in [lib/app/l10n/arb][l10n]; see also: [locale codes][locale codes].
 3. Run the app
    1. Make sure you have this app once via `flutter run`.
 4. Open a pull request

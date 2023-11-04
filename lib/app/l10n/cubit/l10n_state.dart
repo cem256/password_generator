@@ -1,15 +1,15 @@
 part of 'l10n_cubit.dart';
 
 @freezed
-class I10nState with _$I10nState {
-  factory I10nState({required Locale locale}) = _I10nState;
+class L10nState with _$L10nState {
+  factory L10nState({required Locale locale}) = _L10nState;
 
-  const I10nState._();
+  const L10nState._();
 
-  factory I10nState.initial() => I10nState(locale: AppL10n.fallbackLocale);
+  factory L10nState.initial() => L10nState(locale: AppL10n.fallbackLocale);
 
-  factory I10nState.fromMap(Map<String, dynamic> map) {
-    return I10nState(locale: AppL10n.supportedLocales.firstWhere((e) => e.languageCode == map['locale']));
+  factory L10nState.fromMap(Map<String, dynamic> map) {
+    return L10nState(locale: AppL10n.supportedLocales.firstWhere((e) => e.languageCode == map['locale']));
   }
 
   Map<String, dynamic> toMap() {

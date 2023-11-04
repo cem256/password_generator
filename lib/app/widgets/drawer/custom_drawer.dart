@@ -61,11 +61,6 @@ class CustomDrawer extends StatelessWidget {
                   onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.privacyPolicyUrl),
                 ),
                 ListTile(
-                  leading: const Icon(Icons.code),
-                  title: Text(context.l10n.contribute),
-                  onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.githubUrl),
-                ),
-                ListTile(
                   leading: const Icon(Icons.star),
                   title: Text(context.l10n.rate_app),
                   onTap: () async => RateAppUtils.rateApp(),
@@ -74,6 +69,11 @@ class CustomDrawer extends StatelessWidget {
                   leading: const Icon(Icons.share),
                   title: Text(context.l10n.share_app),
                   onTap: () async => ShareAppUtils.shareApp(),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.code),
+                  title: Text(context.l10n.contribute),
+                  onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.githubUrl),
                 ),
               ],
             ),
