@@ -1,10 +1,10 @@
 import 'package:auto_route/annotations.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:password_generator/app/constants/password_constants.dart';
-import 'package:password_generator/app/l10n/app_l10n.g.dart';
+import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
 import 'package:password_generator/app/widgets/container/custom_container.dart';
+import 'package:password_generator/app/widgets/dialog/language_dialog.dart';
 import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/core/extensions/widget_extensions.dart';
@@ -25,7 +25,7 @@ class GeneratePasswordView extends StatelessWidget {
         if (state.isCopied) {
           SnackbarUtils.showSnackbar(
             context: context,
-            message: LocaleKeys.password_copied.tr(),
+            message: context.l10n.password_copied,
           );
           context.read<PasswordHistoryCubit>().addToHistory(password: state.password);
         }
@@ -33,8 +33,14 @@ class GeneratePasswordView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            LocaleKeys.generate_password.tr().toUpperCase(),
+            context.l10n.generate_password.toUpperCase(),
           ),
+          actions: [
+            IconButton(
+              onPressed: () => showDialog<void>(context: context, builder: (context) => const LanguageDialog()),
+              icon: const Icon(Icons.language),
+            ),
+          ],
         ),
         drawer: const CustomDrawer(),
         body: Padding(
@@ -43,7 +49,7 @@ class GeneratePasswordView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                LocaleKeys.generated_password.tr().toUpperCase(),
+                context.l10n.generated_password.toUpperCase(),
               ),
               const _GeneratedPassword(),
               SizedBox(
@@ -52,7 +58,7 @@ class GeneratePasswordView extends StatelessWidget {
               BlocSelector<GeneratePasswordCubit, GeneratePasswordState, int>(
                 selector: (state) => state.password.length,
                 builder: (context, state) {
-                  return Text('${LocaleKeys.length.tr().toUpperCase()} $state');
+                  return Text('${context.l10n.length.toUpperCase()} $state');
                 },
               ),
               const _SliderWidget(),
@@ -60,7 +66,7 @@ class GeneratePasswordView extends StatelessWidget {
                 height: context.lowValue,
               ),
               Text(
-                LocaleKeys.settings.tr().toUpperCase(),
+                context.l10n.settings.toUpperCase(),
               ),
               const _UppercaseSwitch(),
               const _LowercaseSwitch(),
@@ -76,7 +82,7 @@ class GeneratePasswordView extends StatelessWidget {
                         return ElevatedButton(
                           style: ButtonStyle(padding: MaterialStateProperty.all(context.paddingAllDefault)),
                           onPressed: state ? null : () => context.read<GeneratePasswordCubit>().generatePassword(),
-                          child: Text(LocaleKeys.generate_password.tr().toUpperCase()),
+                          child: Text(context.l10n.generate_password.toUpperCase()),
                         );
                       },
                     ),

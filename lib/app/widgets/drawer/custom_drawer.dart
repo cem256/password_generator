@@ -1,12 +1,12 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:password_generator/app/constants/asset_constants.dart';
 import 'package:password_generator/app/constants/string_constants.dart';
-import 'package:password_generator/app/l10n/app_l10n.g.dart';
+import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
 import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/core/extensions/widget_extensions.dart';
+import 'package:password_generator/core/utils/package_info/package_info_utils.dart';
 import 'package:password_generator/core/utils/rate_app/rate_app_utils.dart';
 import 'package:password_generator/core/utils/share_app/share_app_utils.dart';
 import 'package:password_generator/core/utils/url_launcher/url_launcher_utils.dart';
@@ -53,21 +53,26 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.info),
-                  title: Text(LocaleKeys.version.tr()),
+                  title: Text(context.l10n.version(PackageInfoUtils.getAppVersion())),
                 ),
                 ListTile(
                   leading: const Icon(Icons.privacy_tip),
-                  title: Text(LocaleKeys.privacy.tr()),
+                  title: Text(context.l10n.privacy),
                   onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.privacyPolicyUrl),
                 ),
                 ListTile(
+                  leading: const Icon(Icons.code),
+                  title: Text(context.l10n.contribute),
+                  onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.githubUrl),
+                ),
+                ListTile(
                   leading: const Icon(Icons.star),
-                  title: Text(LocaleKeys.rate_app.tr()),
+                  title: Text(context.l10n.rate_app),
                   onTap: () async => RateAppUtils.rateApp(),
                 ),
                 ListTile(
                   leading: const Icon(Icons.share),
-                  title: Text(LocaleKeys.share_app.tr()),
+                  title: Text(context.l10n.share_app),
                   onTap: () async => ShareAppUtils.shareApp(),
                 ),
               ],

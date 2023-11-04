@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract final class AppL10n {
-  static const path = 'assets/translations';
+  static const fallbackLocale = Locale('en', 'US');
 
-  static const en = Locale('en', 'US');
-
-  static List<Locale> get supportedLocales => [en];
+  static List<Locale> get supportedLocales => [const Locale('en', 'US'), const Locale('tr', 'TR')];
 }

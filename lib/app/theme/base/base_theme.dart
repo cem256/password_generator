@@ -9,9 +9,10 @@ abstract base class BaseTheme {
       fontFamily: 'RobotoMono',
       brightness: brightness,
       colorSchemeSeed: Colors.amber,
+      appBarTheme: _appBarTheme,
+      dialogTheme: _dialogTheme,
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      appBarTheme: _appBarTheme,
       snackBarTheme: _snackBarTheme,
     );
   }
@@ -22,6 +23,12 @@ abstract base class BaseTheme {
       borderRadius: BorderRadius.vertical(
         bottom: ThemeConstants.radiusCircular,
       ),
+    ),
+  );
+
+  final DialogTheme _dialogTheme = DialogTheme(
+    shape: RoundedRectangleBorder(
+      borderRadius: ThemeConstants.borderRadiusCircular,
     ),
   );
 

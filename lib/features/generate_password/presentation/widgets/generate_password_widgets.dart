@@ -77,7 +77,7 @@ class _UppercaseSwitch extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(LocaleKeys.uppercase.tr()),
+          Text(context.l10n.uppercase),
           BlocSelector<GeneratePasswordCubit, GeneratePasswordState, bool>(
             selector: (state) => state.passwordSettings.hasUppercase,
             builder: (context, state) {
@@ -104,7 +104,7 @@ class _LowercaseSwitch extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(LocaleKeys.lowercase.tr()),
+          Text(context.l10n.lowercase),
           BlocSelector<GeneratePasswordCubit, GeneratePasswordState, bool>(
             selector: (state) => state.passwordSettings.hasLowercase,
             builder: (context, state) {
@@ -130,7 +130,7 @@ class _NumbersSwitch extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(LocaleKeys.numbers.tr()),
+          Text(context.l10n.numbers),
           BlocSelector<GeneratePasswordCubit, GeneratePasswordState, bool>(
             selector: (state) => state.passwordSettings.hasNumbers,
             builder: (context, state) {
@@ -155,7 +155,7 @@ class _SpecialSwitch extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(LocaleKeys.special.tr()),
+          Text(context.l10n.special),
           BlocSelector<GeneratePasswordCubit, GeneratePasswordState, bool>(
             selector: (state) => state.passwordSettings.hasSpecial,
             builder: (context, state) {
