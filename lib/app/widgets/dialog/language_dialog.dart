@@ -28,14 +28,14 @@ class LanguageDialog extends StatelessWidget {
               shrinkWrap: true,
               itemCount: AppL10n.supportedLocales.length,
               itemBuilder: (context, index) {
-                return BlocBuilder<I10nCubit, I10nState>(
+                return BlocBuilder<L10nCubit, L10nState>(
                   builder: (context, state) {
                     return RadioListTile(
                       contentPadding: EdgeInsets.zero,
                       title: Text(AppL10n.supportedLocales[index].humanLanguage(context)),
                       value: AppL10n.supportedLocales[index],
                       groupValue: state.locale,
-                      onChanged: (_) => context.read<I10nCubit>().changeLocale(locale: AppL10n.supportedLocales[index]),
+                      onChanged: (_) => context.read<L10nCubit>().changeLocale(locale: AppL10n.supportedLocales[index]),
                     );
                   },
                 );

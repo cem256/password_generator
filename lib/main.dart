@@ -46,8 +46,8 @@ class PasswordGenerator extends StatelessWidget {
     // Injecting Blocs to the widget tree
     return MultiBlocProvider(
       providers: [
-        BlocProvider<I10nCubit>(
-          create: (_) => I10nCubit(),
+        BlocProvider<L10nCubit>(
+          create: (_) => L10nCubit(),
         ),
         BlocProvider<ThemeCubit>(
           create: (_) => ThemeCubit(),
@@ -61,8 +61,8 @@ class PasswordGenerator extends StatelessWidget {
           )..generatePassword(),
         ),
       ],
-      child: BlocBuilder<I10nCubit, I10nState>(
-        builder: (context, i10nState) {
+      child: BlocBuilder<L10nCubit, L10nState>(
+        builder: (context, l10nState) {
           return BlocBuilder<ThemeCubit, ThemeState>(
             builder: (context, themeState) {
               return MaterialApp.router(
@@ -75,7 +75,7 @@ class PasswordGenerator extends StatelessWidget {
                 themeMode: themeState.themeMode,
 
                 // Localization
-                locale: i10nState.locale,
+                locale: l10nState.locale,
                 supportedLocales: AppLocalizations.supportedLocales,
                 localizationsDelegates: const [
                   ...AppLocalizations.localizationsDelegates,
