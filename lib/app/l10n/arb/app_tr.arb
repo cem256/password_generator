@@ -1,0 +1,30 @@
+{
+  "language": "Dil",
+  "generate_password": "Parola Oluştur",
+  "generated_password": "Oluşturulan Parola",
+  "generate": "Oluştur",
+  "password_copied": "Parola Kopyalandı",
+  "length": "Uzunluk",
+  "settings": "Ayarlar",
+  "uppercase": "Büyük Harf (Örn. ABC)",
+  "lowercase": "Küçük Harf (Örn. abc)",
+  "numbers": "Sayılar (Örn. 345)",
+  "special": "Özel Karakter (@!#?)",
+  "history": "Geçmiş",
+  "password_history": "Parola Geçmişi",
+  "history_empty": "Geçmiş Boş",
+  "password_deleted": "Parola Kalıcı Olarak Silindi",
+  "privacy": "Gizlilik Politikası",
+  "version": "Sürüm {versionNumber}",
+  "@version": {
+    "placeholders": {
+      "versionNumber": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    }
+  },
+  "rate_app": "Uygulamayı Değerlendir",
+  "share_app": "Uygulamayı Paylaş",
+  "contribute": "Katkıda Bulun"
+}

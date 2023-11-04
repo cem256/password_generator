@@ -1,1 +1,0 @@
-dart run easy_localization:generate  -O lib/app/l10n -f keys -o app_l10n.g.dart --source-dir assets/translations

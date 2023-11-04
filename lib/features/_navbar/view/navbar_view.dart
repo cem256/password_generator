@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:password_generator/app/l10n/app_l10n.g.dart';
+import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
 import 'package:password_generator/app/router/app_router.gr.dart';
 
 @RoutePage()
@@ -22,11 +21,11 @@ class NavbarView extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
               icon: const Icon(Icons.password),
-              label: LocaleKeys.generate.tr(),
+              label: context.l10n.generate,
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.history),
-              label: LocaleKeys.history.tr(),
+              label: context.l10n.history,
             ),
           ],
         );

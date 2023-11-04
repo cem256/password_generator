@@ -1,9 +1,9 @@
 import 'package:auto_route/annotations.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:password_generator/app/l10n/app_l10n.g.dart';
+import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
 import 'package:password_generator/app/widgets/container/custom_container.dart';
+import 'package:password_generator/app/widgets/dialog/language_dialog.dart';
 import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/core/extensions/widget_extensions.dart';
@@ -19,8 +19,14 @@ class PasswordHistoryView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          LocaleKeys.history.tr().toUpperCase(),
+          context.l10n.history.toUpperCase(),
         ),
+        actions: [
+          IconButton(
+            onPressed: () => showDialog<void>(context: context, builder: (context) => const LanguageDialog()),
+            icon: const Icon(Icons.language),
+          ),
+        ],
       ),
       drawer: const CustomDrawer(),
       body: BlocConsumer<PasswordHistoryCubit, PasswordHistoryState>(
@@ -28,13 +34,13 @@ class PasswordHistoryView extends StatelessWidget {
           if (state.isCopied) {
             SnackbarUtils.showSnackbar(
               context: context,
-              message: LocaleKeys.password_copied.tr(),
+              message: context.l10n.password_copied,
             );
           }
           if (state.isDeleted) {
             SnackbarUtils.showSnackbar(
               context: context,
-              message: LocaleKeys.password_deleted.tr(),
+              message: context.l10n.password_deleted,
             );
           }
         },
@@ -42,7 +48,7 @@ class PasswordHistoryView extends StatelessWidget {
           if (state.history.isEmpty) {
             return Center(
               child: Text(
-                LocaleKeys.history_empty.tr(),
+                context.l10n.history_empty,
                 style: context.textTheme.titleMedium,
               ),
             );
@@ -53,7 +59,7 @@ class PasswordHistoryView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    LocaleKeys.password_history.tr().toUpperCase(),
+                    context.l10n.password_history.toUpperCase(),
                   ),
                   Expanded(
                     child: ListView.separated(

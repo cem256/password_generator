@@ -17,9 +17,12 @@ dependencies:
   in_app_review: ^2.0.8
   url_launcher: ^6.2.1
   path_provider: ^2.1.1
+  package_info_plus: ^4.2.0
 
   #localization
-  easy_localization: ^3.0.3
+  flutter_localizations:
+    sdk: flutter
+  flutter_localized_locales: ^2.0.5
 
   #routing
   auto_route: ^7.8.4
@@ -63,10 +66,10 @@ flutter_native_splash:
   image: assets/icons/generator_app_icon.png
 
 flutter:
+  generate: true
   uses-material-design: true
 
   assets:
-    - assets/translations/
     - assets/icons/
 
   fonts:
