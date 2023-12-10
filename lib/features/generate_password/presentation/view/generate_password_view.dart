@@ -8,7 +8,6 @@ import 'package:password_generator/app/widgets/container/custom_container.dart';
 import 'package:password_generator/app/widgets/dialog/language_dialog.dart';
 import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
-import 'package:password_generator/core/extensions/widget_extensions.dart';
 import 'package:password_generator/core/utils/snackbar/snackbar_utils.dart';
 import 'package:password_generator/features/generate_password/presentation/cubit/generate_password_cubit.dart';
 import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
@@ -58,7 +57,7 @@ class GeneratePasswordView extends StatelessWidget {
                       ),
                       const _GeneratedPassword(),
                       SizedBox(
-                        height: context.lowValue,
+                        height: context.defaultValue,
                       ),
                       BlocSelector<GeneratePasswordCubit, GeneratePasswordState, int>(
                         selector: (state) => state.password.length,
@@ -68,7 +67,7 @@ class GeneratePasswordView extends StatelessWidget {
                       ),
                       const _SliderWidget(),
                       SizedBox(
-                        height: context.lowValue,
+                        height: context.defaultValue,
                       ),
                       Text(
                         context.l10n.settings.toUpperCase(),
@@ -77,9 +76,12 @@ class GeneratePasswordView extends StatelessWidget {
                       const _LowercaseSwitch(),
                       const _NumbersSwitch(),
                       const _SpecialSwitch(),
-                    ].spaceBetween(height: context.lowValue),
+                    ],
                   ),
                 ),
+              ),
+              SizedBox(
+                height: context.defaultValue,
               ),
               Row(
                 children: [
@@ -102,7 +104,7 @@ class GeneratePasswordView extends StatelessWidget {
                   ),
                 ],
               ),
-            ].spaceBetween(height: context.lowValue),
+            ],
           ),
         ),
       ),

@@ -6,7 +6,6 @@ import 'package:password_generator/app/widgets/container/custom_container.dart';
 import 'package:password_generator/app/widgets/dialog/language_dialog.dart';
 import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
-import 'package:password_generator/core/extensions/widget_extensions.dart';
 import 'package:password_generator/core/utils/snackbar/snackbar_utils.dart';
 import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
 
@@ -62,13 +61,12 @@ class PasswordHistoryView extends StatelessWidget {
                     context.l10n.password_history.toUpperCase(),
                   ),
                   Expanded(
-                    child: ListView.separated(
+                    child: ListView.builder(
                       itemCount: state.history.length,
-                      separatorBuilder: (context, index) => SizedBox(height: context.lowValue),
                       itemBuilder: (context, index) => _PasswordHistoryTile(password: state.history[index]),
                     ),
                   ),
-                ].spaceBetween(height: context.lowValue),
+                ],
               ),
             );
           }
