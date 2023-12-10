@@ -45,11 +45,8 @@ class CustomDrawer extends StatelessWidget {
                         StringConstants.appName,
                         style: context.textTheme.titleMedium,
                       ),
-                    ].spaceBetween(height: context.defaultValue),
+                    ].spaceBetween(height: context.lowValue),
                   ),
-                ),
-                SizedBox(
-                  height: context.defaultValue,
                 ),
                 ListTile(
                   leading: const Icon(Icons.info),
@@ -75,7 +72,7 @@ class CustomDrawer extends StatelessWidget {
                   title: Text(context.l10n.contribute),
                   onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.githubUrl),
                 ),
-              ],
+              ].spaceBetween(height: context.lowValue),
             ),
           ),
         ),

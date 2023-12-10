@@ -64,7 +64,7 @@ class PasswordHistoryView extends StatelessWidget {
                   Expanded(
                     child: ListView.separated(
                       itemCount: state.history.length,
-                      separatorBuilder: (context, index) => SizedBox(height: context.defaultValue),
+                      separatorBuilder: (context, index) => SizedBox(height: context.lowValue),
                       itemBuilder: (context, index) => _PasswordHistoryTile(password: state.history[index]),
                     ),
                   ),

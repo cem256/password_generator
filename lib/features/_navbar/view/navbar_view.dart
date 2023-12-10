@@ -15,17 +15,19 @@ class NavbarView extends StatelessWidget {
         PasswordHistoryRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
-        return BottomNavigationBar(
-          currentIndex: tabsRouter.activeIndex,
-          onTap: tabsRouter.setActiveIndex,
-          items: [
-            BottomNavigationBarItem(
+        return NavigationBar(
+          selectedIndex: tabsRouter.activeIndex,
+          onDestinationSelected: tabsRouter.setActiveIndex,
+          destinations: [
+            NavigationDestination(
               icon: const Icon(Icons.password),
               label: context.l10n.generate,
+              tooltip: context.l10n.generate,
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: const Icon(Icons.history),
               label: context.l10n.history,
+              tooltip: context.l10n.history,
             ),
           ],
         );

@@ -11,19 +11,14 @@ abstract base class BaseTheme {
       colorSchemeSeed: Colors.amber,
       appBarTheme: _appBarTheme,
       dialogTheme: _dialogTheme,
+      navigationBarTheme: _navigationBarTheme,
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      snackBarTheme: _snackBarTheme,
     );
   }
 
-  final AppBarTheme _appBarTheme = AppBarTheme(
+  final AppBarTheme _appBarTheme = const AppBarTheme(
     centerTitle: true,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(
-        bottom: ThemeConstants.radiusCircular,
-      ),
-    ),
   );
 
   final DialogTheme _dialogTheme = DialogTheme(
@@ -32,8 +27,9 @@ abstract base class BaseTheme {
     ),
   );
 
-  final SnackBarThemeData _snackBarTheme = const SnackBarThemeData(
-    behavior: SnackBarBehavior.floating,
-    elevation: 30,
+  final NavigationBarThemeData _navigationBarTheme = NavigationBarThemeData(
+    indicatorShape: RoundedRectangleBorder(
+      borderRadius: ThemeConstants.borderRadiusCircular,
+    ),
   );
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:password_generator/app/constants/password_constants.dart';
 import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
+import 'package:password_generator/app/theme/constants/theme_constants.dart';
 import 'package:password_generator/app/widgets/container/custom_container.dart';
 import 'package:password_generator/app/widgets/dialog/language_dialog.dart';
 import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
@@ -46,33 +47,40 @@ class GeneratePasswordView extends StatelessWidget {
         body: Padding(
           padding: context.paddingAllDefault,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                context.l10n.generated_password.toUpperCase(),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        context.l10n.generated_password.toUpperCase(),
+                      ),
+                      const _GeneratedPassword(),
+                      SizedBox(
+                        height: context.lowValue,
+                      ),
+                      BlocSelector<GeneratePasswordCubit, GeneratePasswordState, int>(
+                        selector: (state) => state.password.length,
+                        builder: (context, state) {
+                          return Text('${context.l10n.length.toUpperCase()} $state');
+                        },
+                      ),
+                      const _SliderWidget(),
+                      SizedBox(
+                        height: context.lowValue,
+                      ),
+                      Text(
+                        context.l10n.settings.toUpperCase(),
+                      ),
+                      const _UppercaseSwitch(),
+                      const _LowercaseSwitch(),
+                      const _NumbersSwitch(),
+                      const _SpecialSwitch(),
+                    ].spaceBetween(height: context.lowValue),
+                  ),
+                ),
               ),
-              const _GeneratedPassword(),
-              SizedBox(
-                height: context.lowValue,
-              ),
-              BlocSelector<GeneratePasswordCubit, GeneratePasswordState, int>(
-                selector: (state) => state.password.length,
-                builder: (context, state) {
-                  return Text('${context.l10n.length.toUpperCase()} $state');
-                },
-              ),
-              const _SliderWidget(),
-              SizedBox(
-                height: context.lowValue,
-              ),
-              Text(
-                context.l10n.settings.toUpperCase(),
-              ),
-              const _UppercaseSwitch(),
-              const _LowercaseSwitch(),
-              const _NumbersSwitch(),
-              const _SpecialSwitch(),
-              const Spacer(),
               Row(
                 children: [
                   Expanded(
@@ -80,7 +88,12 @@ class GeneratePasswordView extends StatelessWidget {
                       selector: (state) => state.passwordSettings.isAllOptionsDisabled,
                       builder: (context, state) {
                         return ElevatedButton(
-                          style: ButtonStyle(padding: MaterialStateProperty.all(context.paddingAllDefault)),
+                          style: ElevatedButton.styleFrom(
+                            padding: context.paddingAllDefault,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: ThemeConstants.borderRadiusCircular,
+                            ),
+                          ),
                           onPressed: state ? null : () => context.read<GeneratePasswordCubit>().generatePassword(),
                           child: Text(context.l10n.generate_password.toUpperCase()),
                         );
