@@ -5,7 +5,6 @@ import 'package:password_generator/app/constants/string_constants.dart';
 import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
 import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
-import 'package:password_generator/core/extensions/widget_extensions.dart';
 import 'package:password_generator/core/utils/package_info/package_info_utils.dart';
 import 'package:password_generator/core/utils/rate_app/rate_app_utils.dart';
 import 'package:password_generator/core/utils/share_app/share_app_utils.dart';
@@ -41,11 +40,14 @@ class CustomDrawer extends StatelessWidget {
                           ),
                         ],
                       ),
+                      SizedBox(
+                        height: context.defaultValue,
+                      ),
                       Text(
                         StringConstants.appName,
                         style: context.textTheme.titleMedium,
                       ),
-                    ].spaceBetween(height: context.defaultValue),
+                    ],
                   ),
                 ),
                 SizedBox(

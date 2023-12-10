@@ -9,14 +9,14 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: context.paddingHorizontalDefault,
-      decoration: BoxDecoration(
-        borderRadius: ThemeConstants.borderRadiusCircular,
-        color: context.theme.focusColor,
+    return Card(
+      child: Container(
+        padding: context.paddingHorizontalDefault,
+        decoration: BoxDecoration(
+          borderRadius: ThemeConstants.borderRadiusCircular,
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }

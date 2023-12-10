@@ -88,7 +88,7 @@ class PasswordGenerator extends StatelessWidget {
 
                 builder: (context, child) => MediaQuery(
                   // Disables font scaling and bold text
-                  data: context.mediaQuery.copyWith(textScaleFactor: 1, boldText: false),
+                  data: context.mediaQuery.copyWith(boldText: false, textScaler: const TextScaler.linear(1)),
                   child: child!,
                 ),
               );

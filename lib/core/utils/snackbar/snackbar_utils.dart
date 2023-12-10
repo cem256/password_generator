@@ -7,8 +7,7 @@ abstract final class SnackbarUtils {
       ..hideCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
-          duration: context.durationDefault,
-          margin: context.paddingAllVeryHigh1x,
+          duration: context.durationHigh,
           content: Text(message, textAlign: TextAlign.center),
         ),
       );
