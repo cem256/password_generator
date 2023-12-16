@@ -16,7 +16,7 @@ Password Generator generates secure passwords of specified length and settings.
 - Dart Data Class Generation
   - [Freezed](https://pub.dev/packages/freezed)
 - Functional Programming
-  - [Dartz](https://pub.dev/packages/dartz)
+  - [Fpdart](https://pub.dev/packages/fpdart)
 - Navigation
   - [AutoRoute](https://pub.dev/packages/auto_route)
 - Caching
