@@ -1,8 +1,8 @@
 // ignore_for_file: cascade_invocations
 
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:password_generator/app/base/cubit/base_cubit.dart';
 
 import 'package:password_generator/features/generate_password/data/model/password_settings.dart';
 import 'package:password_generator/features/generate_password/data/repository/generate_password_repository.dart';
@@ -10,7 +10,7 @@ import 'package:password_generator/features/generate_password/data/repository/ge
 part 'generate_password_state.dart';
 part 'generate_password_cubit.freezed.dart';
 
-class GeneratePasswordCubit extends BaseCubit<GeneratePasswordState> {
+class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
   GeneratePasswordCubit({required GeneratePasswordRepository generatePasswordRepository})
       : _generatePasswordRepository = generatePasswordRepository,
         super(GeneratePasswordState.initial());

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:password_generator/app/base/cubit/base_cubit.dart';
 import 'package:password_generator/app/l10n/app_l10n.dart';
 
 part 'l10n_state.dart';
 part 'l10n_cubit.freezed.dart';
 
-class L10nCubit extends BaseCubit<L10nState> with HydratedMixin {
+class L10nCubit extends HydratedCubit<L10nState> {
   L10nCubit() : super(L10nState.initial());
 
   void changeLocale({required Locale locale}) {
