@@ -1,11 +1,12 @@
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:password_generator/app/base/cubit/base_cubit.dart';
 
 part 'password_history_state.dart';
 part 'password_history_cubit.freezed.dart';
 
-class PasswordHistoryCubit extends HydratedCubit<PasswordHistoryState> {
+class PasswordHistoryCubit extends BaseCubit<PasswordHistoryState> with HydratedMixin {
   PasswordHistoryCubit() : super(const PasswordHistoryState());
 
   void addToHistory({required String password}) {
