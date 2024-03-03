@@ -11,6 +11,8 @@ abstract base class BaseTheme {
       colorSchemeSeed: Colors.amber,
       appBarTheme: _appBarTheme,
       dialogTheme: _dialogTheme,
+      expansionTileTheme: _expansionTileThemeData,
+      listTileTheme: _listTileThemeData,
       navigationBarTheme: _navigationBarTheme,
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
@@ -26,6 +28,11 @@ abstract base class BaseTheme {
       borderRadius: ThemeConstants.borderRadiusCircular,
     ),
   );
+
+  final ExpansionTileThemeData _expansionTileThemeData =
+      const ExpansionTileThemeData(tilePadding: EdgeInsets.zero, shape: Border());
+
+  final ListTileThemeData _listTileThemeData = const ListTileThemeData(contentPadding: EdgeInsets.zero);
 
   final NavigationBarThemeData _navigationBarTheme = NavigationBarThemeData(
     indicatorShape: RoundedRectangleBorder(

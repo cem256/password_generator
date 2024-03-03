@@ -26,5 +26,7 @@
   },
   "rate_app": "Uygulamayı Değerlendir",
   "share_app": "Uygulamayı Paylaş",
-  "contribute": "Katkıda Bulun"
+  "contribute": "Katkıda Bulun",
+  "discover_more_apps": "Daha Fazla Uygulama Keşfedin",
+  "gpt_detector_description": "Metinlerin büyük dil modeli(LLM) tarafından oluşturulup oluşturulmadığını tespit eder."
 }
