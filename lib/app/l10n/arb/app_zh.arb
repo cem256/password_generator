@@ -26,5 +26,7 @@
   },
   "rate_app": "评价应用",
   "share_app": "分享应用",
-  "contribute": "贡献"
+  "contribute": "贡献",
+  "discover_more_apps": "发现更多应用",
+  "gpt_detector_description": "检测文本是否由大型语言模型生成。"
 }
