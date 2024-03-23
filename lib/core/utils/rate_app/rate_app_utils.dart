@@ -1,6 +1,8 @@
 import 'package:in_app_review/in_app_review.dart';
 
 abstract final class RateAppUtils {
+  RateAppUtils._();
+
   static Future<void> rateApp() async {
     final inAppReview = InAppReview.instance;
 
