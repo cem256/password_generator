@@ -13,39 +13,4 @@ abstract final class CacheConstants {
 
   // Keys
   static const String migrationCompleted = 'migration_completed';
-
-  static const encryptionKey = [
-    89,
-    96,
-    38,
-    193,
-    16,
-    202,
-    168,
-    69,
-    7,
-    15,
-    65,
-    50,
-    224,
-    146,
-    249,
-    249,
-    95,
-    46,
-    108,
-    194,
-    34,
-    252,
-    108,
-    111,
-    189,
-    152,
-    78,
-    201,
-    191,
-    105,
-    247,
-    7,
-  ];
 }

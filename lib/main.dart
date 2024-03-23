@@ -5,8 +5,8 @@ import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:password_generator/app/constants/cache_constants.dart';
 import 'package:password_generator/app/constants/string_constants.dart';
+import 'package:password_generator/app/env/env.dart';
 import 'package:password_generator/app/l10n/cubit/l10n_cubit.dart';
 import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
 import 'package:password_generator/app/router/app_router.dart';
@@ -15,6 +15,7 @@ import 'package:password_generator/app/theme/dark/app_theme_dark.dart';
 import 'package:password_generator/app/theme/light/app_theme_light.dart';
 import 'package:password_generator/core/clients/cache/cache_migration_client.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
+import 'package:password_generator/core/utils/encryption/encryption_utils.dart';
 import 'package:password_generator/core/utils/package_info/package_info_utils.dart';
 import 'package:password_generator/features/generate_password/data/repository/generate_password_repository.dart';
 import 'package:password_generator/features/generate_password/presentation/cubit/generate_password_cubit.dart';
@@ -34,13 +35,14 @@ Future<void> main() async {
     ),
   ]);
 
+  final encryptionKey = EncryptionUtils.generateEncryptionKeyFromSecretKey(Env.secretKey);
   final cacheMigrationClient = CacheMigrationClient();
-  await cacheMigrationClient.migrate(encryptionKey: CacheConstants.encryptionKey);
+  await cacheMigrationClient.migrate(encryptionKey: encryptionKey);
 
   // Initialize Hydrated Bloc
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
-    encryptionCipher: HydratedAesCipher(CacheConstants.encryptionKey),
+    encryptionCipher: HydratedAesCipher(encryptionKey),
   );
 
   runApp(PasswordGenerator());
