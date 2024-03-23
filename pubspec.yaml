@@ -18,6 +18,7 @@ dependencies:
   #utility
   crypto: ^3.0.3
   envied: ^0.5.3
+  logger: ^2.2.0
   share_plus: ^7.2.1
   in_app_review: ^2.0.8
   url_launcher: ^6.2.2

@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:password_generator/app/constants/cache_constants.dart';
+import 'package:password_generator/core/utils/logger/logger_utils.dart';
 
 enum MigrationStatus {
   completed(true),
@@ -28,7 +27,7 @@ class CacheMigrationClient {
         await _setMigrationStatus(MigrationStatus.completed);
       }
     } catch (e) {
-      log('Error during migration: $e');
+      LoggerUtils.instance.logError('Error during migration: $e');
     }
   }
 

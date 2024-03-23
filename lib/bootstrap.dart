@@ -13,45 +13,36 @@ import 'package:path_provider/path_provider.dart';
 
 Future<void> bootstrap({required FutureOr<Widget> Function() builder}) async {
   WidgetsFlutterBinding.ensureInitialized();
-  // // Setup Firebase
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
-  // // Enable Crashlytics collection
-  // FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  FlutterNativeSplash();
+  // // await Firebase.initializeApp();
+  // FlutterError.onError = (FlutterErrorDetails details) {
+  //   LoggerUtils.instance.logFatalError(details.exceptionAsString(), details.stack);
+  //   // FirebaseCrashlytics.instance.recordFlutterError(details);
+  // };
+  // // // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+  // PlatformDispatcher.instance.onError = (error, stack) {
+  //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+  //   LoggerUtils.instance.logFatalError(error.toString(), stack);
+  //   return true;
+  // };
 
-  // Set up custom error handling for Flutter errors
-  FlutterError.onError = (FlutterErrorDetails details) {
-    // FirebaseCrashlytics.instance.recordFlutterError(details);
-  };
+  await Future.wait([
+    Hive.initFlutter(),
+    PackageInfoUtils.init(),
+    SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp],
+    ),
+  ]);
 
-  await runZonedGuarded<Future<void>>(
-    () async {
-      // Initialize Flutter Native Splash
-      FlutterNativeSplash();
+  final encryptionKey = EncryptionUtils.generateEncryptionKeyFromSecretKey(Env.secretKey);
+  final cacheMigrationClient = CacheMigrationClient();
+  await cacheMigrationClient.migrate(encryptionKey: encryptionKey);
 
-      await Future.wait([
-        Hive.initFlutter(),
-        PackageInfoUtils.init(),
-        SystemChrome.setPreferredOrientations(
-          [DeviceOrientation.portraitUp],
-        ),
-      ]);
-
-      final encryptionKey = EncryptionUtils.generateEncryptionKeyFromSecretKey(Env.secretKey);
-      final cacheMigrationClient = CacheMigrationClient();
-      await cacheMigrationClient.migrate(encryptionKey: encryptionKey);
-
-      // Initialize Hydrated Bloc
-      HydratedBloc.storage = await HydratedStorage.build(
-        storageDirectory: await getApplicationDocumentsDirectory(),
-        encryptionCipher: HydratedAesCipher(encryptionKey),
-      );
-
-      runApp(await builder());
-    },
-    (error, stackTrace) {
-      // FirebaseCrashlytics.instance.recordError(error, stackTrace, fatal: true);
-    },
+  // Initialize Hydrated Bloc
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: await getApplicationDocumentsDirectory(),
+    encryptionCipher: HydratedAesCipher(encryptionKey),
   );
+
+  runApp(await builder());
 }
