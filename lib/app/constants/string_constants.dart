@@ -1,4 +1,6 @@
 abstract final class StringConstants {
+  StringConstants._();
+
   static const String appName = 'Password Generator';
   static const String gptDetector = 'GPT Detector';
   static const String githubUrl = 'https://github.com/cem256/password_generator';
