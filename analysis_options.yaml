@@ -6,6 +6,7 @@ analyzer:
   exclude:
     - "**.g.dart"
     - "**.freezed.dart"
+    - "/**firebase_options.dart"
 linter:
   rules:
     file_names: false

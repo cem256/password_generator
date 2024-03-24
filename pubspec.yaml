@@ -15,6 +15,10 @@ dependencies:
   # caching
   hive_flutter: ^1.1.0
 
+  # firebase
+  firebase_core: ^2.27.1
+  firebase_crashlytics: ^3.4.19
+
   #utility
   crypto: ^3.0.3
   envied: ^0.5.3
@@ -23,7 +27,7 @@ dependencies:
   in_app_review: ^2.0.8
   url_launcher: ^6.2.2
   path_provider: ^2.1.1
-  package_info_plus: ^5.0.1
+  package_info_plus: ^6.0.0
 
   #localization
   flutter_localizations:
