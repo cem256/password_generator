@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:password_generator/app/constants/asset_constants.dart';
@@ -77,23 +79,25 @@ class CustomDrawer extends StatelessWidget {
                   title: Text(context.l10n.contribute),
                   onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.githubUrl),
                 ),
-                ExpansionTile(
-                  leading: const Icon(Icons.smartphone),
-                  title: Text(context.l10n.discover_more_apps),
-                  initiallyExpanded: true,
-                  children: [
-                    ListTile(
-                      onTap: () async =>
-                          UrlLauncherUtils.launchUrlFromString(url: StringConstants.gptDetectorPlayStoreUrl),
-                      leading: Image.asset(
-                        AssetConstants.gptDetectorAppIcon,
-                        height: 24,
+                if (Platform.isAndroid) ...[
+                  ExpansionTile(
+                    leading: const Icon(Icons.smartphone),
+                    title: Text(context.l10n.discover_more_apps),
+                    initiallyExpanded: true,
+                    children: [
+                      ListTile(
+                        onTap: () async =>
+                            UrlLauncherUtils.launchUrlFromString(url: StringConstants.gptDetectorPlayStoreUrl),
+                        leading: Image.asset(
+                          AssetConstants.gptDetectorAppIcon,
+                          height: 24,
+                        ),
+                        title: const Text(StringConstants.gptDetector),
+                        subtitle: Text(context.l10n.gpt_detector_description),
                       ),
-                      title: const Text(StringConstants.gptDetector),
-                      subtitle: Text(context.l10n.gpt_detector_description),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                ],
               ],
             ),
           ),
