@@ -72,7 +72,7 @@ class CustomDrawer extends StatelessWidget {
                 ListTile(
                   leading: const Icon(Icons.share),
                   title: Text(context.l10n.share_app),
-                  onTap: () async => ShareAppUtils.shareApp(),
+                  onTap: () async => ShareAppUtils.shareApp(context),
                 ),
                 ListTile(
                   leading: const Icon(Icons.code),
