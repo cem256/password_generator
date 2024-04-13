@@ -79,25 +79,26 @@ class CustomDrawer extends StatelessWidget {
                   title: Text(context.l10n.contribute),
                   onTap: () async => UrlLauncherUtils.launchUrlFromString(url: StringConstants.githubUrl),
                 ),
-                if (Platform.isAndroid) ...[
-                  ExpansionTile(
-                    leading: const Icon(Icons.smartphone),
-                    title: Text(context.l10n.discover_more_apps),
-                    initiallyExpanded: true,
-                    children: [
-                      ListTile(
-                        onTap: () async =>
-                            UrlLauncherUtils.launchUrlFromString(url: StringConstants.gptDetectorPlayStoreUrl),
-                        leading: Image.asset(
-                          AssetConstants.gptDetectorAppIcon,
-                          height: 24,
-                        ),
-                        title: const Text(StringConstants.gptDetector),
-                        subtitle: Text(context.l10n.gpt_detector_description),
+                ExpansionTile(
+                  leading: const Icon(Icons.smartphone),
+                  title: Text(context.l10n.discover_more_apps),
+                  initiallyExpanded: true,
+                  children: [
+                    ListTile(
+                      onTap: () async => UrlLauncherUtils.launchUrlFromString(
+                        url: Platform.isAndroid
+                            ? StringConstants.gptDetectorPlayStoreUrl
+                            : StringConstants.gptDetectorAppStoreUrl,
                       ),
-                    ],
-                  ),
-                ],
+                      leading: Image.asset(
+                        AssetConstants.gptDetectorAppIcon,
+                        height: 24,
+                      ),
+                      title: Text(StringConstants.gptDetector),
+                      subtitle: Text(context.l10n.gpt_detector_description),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
