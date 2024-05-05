@@ -5,7 +5,7 @@ import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 export 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 extension AppL10nExtension on Locale {
-  String humanLanguage(BuildContext context) => LocaleNames.of(context)?.nameOf('${languageCode}_$countryCode') ?? '';
+  String humanLanguage(BuildContext context) => LocaleNames.of(context)?.nameOf(languageCode) ?? '';
 }
 
 extension AppLocalizationsX on BuildContext {

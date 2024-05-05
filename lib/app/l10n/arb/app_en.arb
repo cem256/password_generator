@@ -1,6 +1,6 @@
 {
   "language": "Language",
-  "generate_password": "Generate password",
+  "generate_password": "Generate Password",
   "generated_password": "Generated password",
   "generate": "Generate",
   "password_copied": "Password Copied",
@@ -16,14 +16,6 @@
   "password_deleted": "Password Permanently Deleted",
   "privacy": "Privacy Policy",
   "version": "Version {versionNumber}",
-  "@version": {
-    "placeholders": {
-      "versionNumber": {
-        "type": "String",
-        "example": "1.0.0"
-      }
-    }
-  },
   "rate_app": "Rate App",
   "share_app": "Share App",
   "contribute": "Contribute",

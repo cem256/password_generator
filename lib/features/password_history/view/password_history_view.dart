@@ -1,9 +1,9 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
+import 'package:password_generator/app/router/app_router.gr.dart';
 import 'package:password_generator/app/widgets/container/custom_container.dart';
-import 'package:password_generator/app/widgets/dialog/language_dialog.dart';
 import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
 import 'package:password_generator/core/utils/snackbar/snackbar_utils.dart';
@@ -18,11 +18,11 @@ class PasswordHistoryView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          context.l10n.history.toUpperCase(),
+          context.l10n.history,
         ),
         actions: [
           IconButton(
-            onPressed: () => showDialog<void>(context: context, builder: (context) => const LanguageDialog()),
+            onPressed: () => context.router.push(const LanguageRoute()),
             icon: const Icon(Icons.language),
           ),
         ],
