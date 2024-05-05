@@ -9,21 +9,13 @@
   "uppercase": "大写（例如ABC）",
   "lowercase": "小写（例如abc）",
   "numbers": "数字（例如345）",
-  "special": "特殊字符（@!#?）",
+  "special": "特殊字符（例如@!#?）",
   "history": "历史记录",
   "password_history": "密码历史",
   "history_empty": "历史记录为空",
   "password_deleted": "密码已永久删除",
   "privacy": "隐私政策",
   "version": "版本 {versionNumber}",
-  "@version": {
-    "placeholders": {
-      "versionNumber": {
-        "type": "String",
-        "example": "1.0.0"
-      }
-    }
-  },
   "rate_app": "评价应用",
   "share_app": "分享应用",
   "contribute": "贡献",

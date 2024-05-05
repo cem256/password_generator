@@ -13,5 +13,8 @@ final class AppRouter extends $AppRouter {
             AdaptiveRoute(page: PasswordHistoryRoute.page),
           ],
         ),
+        AdaptiveRoute(
+          page: LanguageRoute.page,
+        ),
       ];
 }
