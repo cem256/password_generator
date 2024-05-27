@@ -6,11 +6,13 @@ class GeneratePasswordState with _$GeneratePasswordState {
     required PasswordSettings passwordSettings,
     required String password,
     required bool isCopied,
+    required int generatedPasswordCount,
   }) = _GeneratePasswordState;
 
   factory GeneratePasswordState.initial() => GeneratePasswordState(
         passwordSettings: PasswordSettings.initial(),
         password: '',
         isCopied: false,
+        generatedPasswordCount: 0,
       );
 }

@@ -8,6 +8,7 @@ import 'package:password_generator/app/theme/constants/theme_constants.dart';
 import 'package:password_generator/app/widgets/container/custom_container.dart';
 import 'package:password_generator/app/widgets/drawer/custom_drawer.dart';
 import 'package:password_generator/core/extensions/context_extensions.dart';
+import 'package:password_generator/core/utils/rate_app/rate_app_utils.dart';
 import 'package:password_generator/core/utils/snackbar/snackbar_utils.dart';
 import 'package:password_generator/features/generate_password/presentation/cubit/generate_password_cubit.dart';
 import 'package:password_generator/features/password_history/cubit/password_history_cubit.dart';
@@ -21,13 +22,17 @@ class GeneratePasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<GeneratePasswordCubit, GeneratePasswordState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state.isCopied) {
           SnackbarUtils.showSnackbar(
             context: context,
             message: context.l10n.password_copied,
           );
           context.read<PasswordHistoryCubit>().addToHistory(password: state.password);
+        }
+        // Show rate app dialog after generating 5 passwords
+        if (state.generatedPasswordCount == 5) {
+          await RateAppUtils.rateApp();
         }
       },
       child: Scaffold(

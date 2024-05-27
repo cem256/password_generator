@@ -19,6 +19,7 @@ mixin _$GeneratePasswordState {
   PasswordSettings get passwordSettings => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   bool get isCopied => throw _privateConstructorUsedError;
+  int get generatedPasswordCount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GeneratePasswordStateCopyWith<GeneratePasswordState> get copyWith =>
@@ -32,7 +33,10 @@ abstract class $GeneratePasswordStateCopyWith<$Res> {
       _$GeneratePasswordStateCopyWithImpl<$Res, GeneratePasswordState>;
   @useResult
   $Res call(
-      {PasswordSettings passwordSettings, String password, bool isCopied});
+      {PasswordSettings passwordSettings,
+      String password,
+      bool isCopied,
+      int generatedPasswordCount});
 
   $PasswordSettingsCopyWith<$Res> get passwordSettings;
 }
@@ -54,6 +58,7 @@ class _$GeneratePasswordStateCopyWithImpl<$Res,
     Object? passwordSettings = null,
     Object? password = null,
     Object? isCopied = null,
+    Object? generatedPasswordCount = null,
   }) {
     return _then(_value.copyWith(
       passwordSettings: null == passwordSettings
@@ -68,6 +73,10 @@ class _$GeneratePasswordStateCopyWithImpl<$Res,
           ? _value.isCopied
           : isCopied // ignore: cast_nullable_to_non_nullable
               as bool,
+      generatedPasswordCount: null == generatedPasswordCount
+          ? _value.generatedPasswordCount
+          : generatedPasswordCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -90,7 +99,10 @@ abstract class _$$GeneratePasswordStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {PasswordSettings passwordSettings, String password, bool isCopied});
+      {PasswordSettings passwordSettings,
+      String password,
+      bool isCopied,
+      int generatedPasswordCount});
 
   @override
   $PasswordSettingsCopyWith<$Res> get passwordSettings;
@@ -111,6 +123,7 @@ class __$$GeneratePasswordStateImplCopyWithImpl<$Res>
     Object? passwordSettings = null,
     Object? password = null,
     Object? isCopied = null,
+    Object? generatedPasswordCount = null,
   }) {
     return _then(_$GeneratePasswordStateImpl(
       passwordSettings: null == passwordSettings
@@ -125,6 +138,10 @@ class __$$GeneratePasswordStateImplCopyWithImpl<$Res>
           ? _value.isCopied
           : isCopied // ignore: cast_nullable_to_non_nullable
               as bool,
+      generatedPasswordCount: null == generatedPasswordCount
+          ? _value.generatedPasswordCount
+          : generatedPasswordCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -135,7 +152,8 @@ class _$GeneratePasswordStateImpl implements _GeneratePasswordState {
   const _$GeneratePasswordStateImpl(
       {required this.passwordSettings,
       required this.password,
-      required this.isCopied});
+      required this.isCopied,
+      required this.generatedPasswordCount});
 
   @override
   final PasswordSettings passwordSettings;
@@ -143,10 +161,12 @@ class _$GeneratePasswordStateImpl implements _GeneratePasswordState {
   final String password;
   @override
   final bool isCopied;
+  @override
+  final int generatedPasswordCount;
 
   @override
   String toString() {
-    return 'GeneratePasswordState(passwordSettings: $passwordSettings, password: $password, isCopied: $isCopied)';
+    return 'GeneratePasswordState(passwordSettings: $passwordSettings, password: $password, isCopied: $isCopied, generatedPasswordCount: $generatedPasswordCount)';
   }
 
   @override
@@ -159,12 +179,14 @@ class _$GeneratePasswordStateImpl implements _GeneratePasswordState {
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.isCopied, isCopied) ||
-                other.isCopied == isCopied));
+                other.isCopied == isCopied) &&
+            (identical(other.generatedPasswordCount, generatedPasswordCount) ||
+                other.generatedPasswordCount == generatedPasswordCount));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, passwordSettings, password, isCopied);
+  int get hashCode => Object.hash(runtimeType, passwordSettings, password,
+      isCopied, generatedPasswordCount);
 
   @JsonKey(ignore: true)
   @override
@@ -178,7 +200,8 @@ abstract class _GeneratePasswordState implements GeneratePasswordState {
   const factory _GeneratePasswordState(
       {required final PasswordSettings passwordSettings,
       required final String password,
-      required final bool isCopied}) = _$GeneratePasswordStateImpl;
+      required final bool isCopied,
+      required final int generatedPasswordCount}) = _$GeneratePasswordStateImpl;
 
   @override
   PasswordSettings get passwordSettings;
@@ -186,6 +209,8 @@ abstract class _GeneratePasswordState implements GeneratePasswordState {
   String get password;
   @override
   bool get isCopied;
+  @override
+  int get generatedPasswordCount;
   @override
   @JsonKey(ignore: true)
   _$$GeneratePasswordStateImplCopyWith<_$GeneratePasswordStateImpl>

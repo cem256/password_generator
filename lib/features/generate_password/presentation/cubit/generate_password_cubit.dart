@@ -96,7 +96,11 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
         state.copyWith(passwordSettings: passwordSettings),
       ),
       (password) => emit(
-        state.copyWith(passwordSettings: passwordSettings, password: password),
+        state.copyWith(
+          passwordSettings: passwordSettings,
+          password: password,
+          generatedPasswordCount: state.generatedPasswordCount + 1,
+        ),
       ),
     );
   }
