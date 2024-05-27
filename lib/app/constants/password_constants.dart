@@ -2,7 +2,7 @@ abstract final class PasswordConstants {
   PasswordConstants._();
 
   static const double initialLength = 12;
-  static const double minLength = 8;
+  static const double minLength = 6;
   static const double maxLength = 32;
 
   static const String lettersUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
