@@ -9,26 +9,26 @@ dependencies:
     sdk: flutter
 
   #state management
-  flutter_bloc: ^8.1.3
-  hydrated_bloc: ^9.1.4
+  flutter_bloc: ^8.1.5
+  hydrated_bloc: ^9.1.5
 
   # caching
   hive_flutter: ^1.1.0
 
   # firebase
-  firebase_core: ^2.27.1
-  firebase_crashlytics: ^3.4.19
+  firebase_core: ^2.31.1
+  firebase_crashlytics: ^3.5.6
 
   #utility
   crypto: ^3.0.3
-  envied: ^0.5.3
-  logger: ^2.2.0
+  envied: ^0.5.4+1
+  logger: ^2.3.0
   recase: ^4.1.0
-  share_plus: ^7.2.1
-  in_app_review: ^2.0.8
-  url_launcher: ^6.2.2
-  path_provider: ^2.1.1
-  package_info_plus: ^6.0.0
+  share_plus: ^9.0.0
+  in_app_review: ^2.0.9
+  url_launcher: ^6.2.6
+  path_provider: ^2.1.3
+  package_info_plus: ^8.0.0
 
   #localization
   flutter_localizations:
@@ -36,7 +36,7 @@ dependencies:
   flutter_localized_locales: ^2.0.5
 
   #routing
-  auto_route: ^7.8.4
+  auto_route: ^8.1.3
 
   #functional programming
   fpdart: ^1.1.0
@@ -46,7 +46,7 @@ dependencies:
 
   #app icons
   flutter_launcher_icons: ^0.13.1
-  flutter_native_splash: ^2.3.8
+  flutter_native_splash: ^2.4.0
 
 dev_dependencies:
   flutter_test:
@@ -56,10 +56,10 @@ dev_dependencies:
   very_good_analysis: ^5.1.0
 
   #code gen
-  freezed: ^2.4.5
-  build_runner: ^2.4.7
-  envied_generator: ^0.5.3
-  auto_route_generator: ^7.3.2
+  freezed: ^2.5.2
+  build_runner: ^2.4.10
+  envied_generator: ^0.5.4+1
+  auto_route_generator: ^8.0.0
 
 flutter_launcher_icons:
   android: true
