@@ -38,7 +38,7 @@ class GeneratePasswordView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            context.l10n.generate_password,
+            context.l10n.generate,
           ),
           actions: [
             IconButton(
