@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+PasswordSettings _$PasswordSettingsFromJson(Map<String, dynamic> json) {
+  return _PasswordSettings.fromJson(json);
+}
+
 /// @nodoc
 mixin _$PasswordSettings {
   double get length => throw _privateConstructorUsedError;
@@ -22,6 +26,7 @@ mixin _$PasswordSettings {
   bool get hasNumbers => throw _privateConstructorUsedError;
   bool get hasSpecial => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PasswordSettingsCopyWith<PasswordSettings> get copyWith =>
       throw _privateConstructorUsedError;
@@ -144,25 +149,33 @@ class __$$PasswordSettingsImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$PasswordSettingsImpl extends _PasswordSettings {
   const _$PasswordSettingsImpl(
-      {required this.length,
-      required this.hasLowercase,
-      required this.hasUppercase,
-      required this.hasNumbers,
-      required this.hasSpecial})
+      {this.length = PasswordConstants.initialLength,
+      this.hasLowercase = true,
+      this.hasUppercase = true,
+      this.hasNumbers = true,
+      this.hasSpecial = true})
       : super._();
 
+  factory _$PasswordSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PasswordSettingsImplFromJson(json);
+
   @override
+  @JsonKey()
   final double length;
   @override
+  @JsonKey()
   final bool hasLowercase;
   @override
+  @JsonKey()
   final bool hasUppercase;
   @override
+  @JsonKey()
   final bool hasNumbers;
   @override
+  @JsonKey()
   final bool hasSpecial;
 
   @override
@@ -186,6 +199,7 @@ class _$PasswordSettingsImpl extends _PasswordSettings {
                 other.hasSpecial == hasSpecial));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, length, hasLowercase, hasUppercase, hasNumbers, hasSpecial);
@@ -196,16 +210,26 @@ class _$PasswordSettingsImpl extends _PasswordSettings {
   _$$PasswordSettingsImplCopyWith<_$PasswordSettingsImpl> get copyWith =>
       __$$PasswordSettingsImplCopyWithImpl<_$PasswordSettingsImpl>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PasswordSettingsImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _PasswordSettings extends PasswordSettings {
   const factory _PasswordSettings(
-      {required final double length,
-      required final bool hasLowercase,
-      required final bool hasUppercase,
-      required final bool hasNumbers,
-      required final bool hasSpecial}) = _$PasswordSettingsImpl;
+      {final double length,
+      final bool hasLowercase,
+      final bool hasUppercase,
+      final bool hasNumbers,
+      final bool hasSpecial}) = _$PasswordSettingsImpl;
   const _PasswordSettings._() : super._();
+
+  factory _PasswordSettings.fromJson(Map<String, dynamic> json) =
+      _$PasswordSettingsImpl.fromJson;
 
   @override
   double get length;

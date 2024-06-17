@@ -38,7 +38,7 @@ class GeneratePasswordView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            context.l10n.generate_password,
+            context.l10n.generate,
           ),
           actions: [
             IconButton(
@@ -96,13 +96,20 @@ class GeneratePasswordView extends StatelessWidget {
                       builder: (context, state) {
                         return ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: context.colorScheme.primary,
+                            foregroundColor: context.colorScheme.onPrimary,
                             padding: context.paddingAllDefault,
                             shape: RoundedRectangleBorder(
                               borderRadius: ThemeConstants.borderRadiusCircular,
                             ),
                           ),
                           onPressed: state ? null : () => context.read<GeneratePasswordCubit>().generatePassword(),
-                          child: Text(context.l10n.generate_password.toUpperCase()),
+                          child: Text(
+                            context.l10n.generate_password.toUpperCase(),
+                            style: context.textTheme.bodyLarge?.copyWith(
+                              color: context.colorScheme.onPrimary,
+                            ),
+                          ),
                         );
                       },
                     ),

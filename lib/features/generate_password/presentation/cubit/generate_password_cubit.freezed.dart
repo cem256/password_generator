@@ -14,13 +14,22 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+GeneratePasswordState _$GeneratePasswordStateFromJson(
+    Map<String, dynamic> json) {
+  return _GeneratePasswordState.fromJson(json);
+}
+
 /// @nodoc
 mixin _$GeneratePasswordState {
   PasswordSettings get passwordSettings => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
   String get password => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
   bool get isCopied => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
   int get generatedPasswordCount => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GeneratePasswordStateCopyWith<GeneratePasswordState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -34,8 +43,9 @@ abstract class $GeneratePasswordStateCopyWith<$Res> {
   @useResult
   $Res call(
       {PasswordSettings passwordSettings,
-      String password,
-      bool isCopied,
+      @JsonKey(includeFromJson: false, includeToJson: false) String password,
+      @JsonKey(includeFromJson: false, includeToJson: false) bool isCopied,
+      @JsonKey(includeFromJson: false, includeToJson: false)
       int generatedPasswordCount});
 
   $PasswordSettingsCopyWith<$Res> get passwordSettings;
@@ -100,8 +110,9 @@ abstract class _$$GeneratePasswordStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {PasswordSettings passwordSettings,
-      String password,
-      bool isCopied,
+      @JsonKey(includeFromJson: false, includeToJson: false) String password,
+      @JsonKey(includeFromJson: false, includeToJson: false) bool isCopied,
+      @JsonKey(includeFromJson: false, includeToJson: false)
       int generatedPasswordCount});
 
   @override
@@ -147,21 +158,31 @@ class __$$GeneratePasswordStateImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
+@JsonSerializable()
+class _$GeneratePasswordStateImpl extends _GeneratePasswordState {
+  _$GeneratePasswordStateImpl(
+      {this.passwordSettings = const PasswordSettings(),
+      @JsonKey(includeFromJson: false, includeToJson: false) this.password = '',
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      this.isCopied = false,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      this.generatedPasswordCount = 0})
+      : super._();
 
-class _$GeneratePasswordStateImpl implements _GeneratePasswordState {
-  const _$GeneratePasswordStateImpl(
-      {required this.passwordSettings,
-      required this.password,
-      required this.isCopied,
-      required this.generatedPasswordCount});
+  factory _$GeneratePasswordStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GeneratePasswordStateImplFromJson(json);
 
   @override
+  @JsonKey()
   final PasswordSettings passwordSettings;
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final String password;
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final bool isCopied;
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final int generatedPasswordCount;
 
   @override
@@ -184,6 +205,7 @@ class _$GeneratePasswordStateImpl implements _GeneratePasswordState {
                 other.generatedPasswordCount == generatedPasswordCount));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, passwordSettings, password,
       isCopied, generatedPasswordCount);
@@ -194,22 +216,39 @@ class _$GeneratePasswordStateImpl implements _GeneratePasswordState {
   _$$GeneratePasswordStateImplCopyWith<_$GeneratePasswordStateImpl>
       get copyWith => __$$GeneratePasswordStateImplCopyWithImpl<
           _$GeneratePasswordStateImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GeneratePasswordStateImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _GeneratePasswordState implements GeneratePasswordState {
-  const factory _GeneratePasswordState(
-      {required final PasswordSettings passwordSettings,
-      required final String password,
-      required final bool isCopied,
-      required final int generatedPasswordCount}) = _$GeneratePasswordStateImpl;
+abstract class _GeneratePasswordState extends GeneratePasswordState {
+  factory _GeneratePasswordState(
+      {final PasswordSettings passwordSettings,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      final String password,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      final bool isCopied,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      final int generatedPasswordCount}) = _$GeneratePasswordStateImpl;
+  _GeneratePasswordState._() : super._();
+
+  factory _GeneratePasswordState.fromJson(Map<String, dynamic> json) =
+      _$GeneratePasswordStateImpl.fromJson;
 
   @override
   PasswordSettings get passwordSettings;
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   String get password;
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   bool get isCopied;
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   int get generatedPasswordCount;
   @override
   @JsonKey(ignore: true)

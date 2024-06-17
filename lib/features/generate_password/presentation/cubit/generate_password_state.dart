@@ -1,18 +1,17 @@
+// ignore_for_file: invalid_annotation_target
+
 part of 'generate_password_cubit.dart';
 
 @freezed
 class GeneratePasswordState with _$GeneratePasswordState {
-  const factory GeneratePasswordState({
-    required PasswordSettings passwordSettings,
-    required String password,
-    required bool isCopied,
-    required int generatedPasswordCount,
+  factory GeneratePasswordState({
+    @Default(PasswordSettings()) PasswordSettings passwordSettings,
+    @JsonKey(includeFromJson: false, includeToJson: false) @Default('') String password,
+    @JsonKey(includeFromJson: false, includeToJson: false) @Default(false) bool isCopied,
+    @JsonKey(includeFromJson: false, includeToJson: false) @Default(0) int generatedPasswordCount,
   }) = _GeneratePasswordState;
 
-  factory GeneratePasswordState.initial() => GeneratePasswordState(
-        passwordSettings: PasswordSettings.initial(),
-        password: '',
-        isCopied: false,
-        generatedPasswordCount: 0,
-      );
+  const GeneratePasswordState._();
+
+  factory GeneratePasswordState.fromJson(Map<String, dynamic> json) => _$GeneratePasswordStateFromJson(json);
 }

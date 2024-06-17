@@ -1,19 +1,21 @@
 // ignore_for_file: cascade_invocations
 
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import 'package:password_generator/features/generate_password/data/model/password_settings.dart';
 import 'package:password_generator/features/generate_password/data/repository/generate_password_repository.dart';
 
 part 'generate_password_state.dart';
 part 'generate_password_cubit.freezed.dart';
+part 'generate_password_cubit.g.dart';
 
-class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
-  GeneratePasswordCubit({required GeneratePasswordRepository generatePasswordRepository})
-      : _generatePasswordRepository = generatePasswordRepository,
-        super(GeneratePasswordState.initial());
+class GeneratePasswordCubit extends HydratedCubit<GeneratePasswordState> {
+  GeneratePasswordCubit({
+    required GeneratePasswordRepository generatePasswordRepository,
+  })  : _generatePasswordRepository = generatePasswordRepository,
+        super(GeneratePasswordState());
 
   final GeneratePasswordRepository _generatePasswordRepository;
 
@@ -109,5 +111,15 @@ class GeneratePasswordCubit extends Cubit<GeneratePasswordState> {
     emit(state.copyWith(isCopied: true));
     await Clipboard.setData(ClipboardData(text: state.password));
     emit(state.copyWith(isCopied: false));
+  }
+
+  @override
+  GeneratePasswordState? fromJson(Map<String, dynamic> json) {
+    return GeneratePasswordState.fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic>? toJson(GeneratePasswordState state) {
+    return state.toJson();
   }
 }
