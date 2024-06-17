@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:password_generator/app/theme/constants/theme_constants.dart';
 
 abstract base class BaseTheme {
-  Brightness get brightness;
+  BaseTheme({required this.colorScheme});
+
+  final ColorScheme colorScheme;
 
   ThemeData get theme {
     return ThemeData(
       fontFamily: 'RobotoMono',
-      brightness: brightness,
-      colorSchemeSeed: Colors.amber,
+      colorScheme: colorScheme,
       appBarTheme: _appBarTheme,
       dialogTheme: _dialogTheme,
       expansionTileTheme: _expansionTileThemeData,
@@ -21,6 +22,8 @@ abstract base class BaseTheme {
 
   final AppBarTheme _appBarTheme = const AppBarTheme(
     centerTitle: true,
+    backgroundColor: Colors.transparent,
+    scrolledUnderElevation: 0,
   );
 
   final DialogTheme _dialogTheme = DialogTheme(

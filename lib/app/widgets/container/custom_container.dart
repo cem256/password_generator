@@ -10,6 +10,7 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: context.colorScheme.onSecondary,
       child: Container(
         padding: context.paddingHorizontalDefault,
         decoration: BoxDecoration(

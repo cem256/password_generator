@@ -48,9 +48,6 @@ extension PaddingExtension on BuildContext {
   /// Adds 5% padding from all sides.
   EdgeInsets get paddingAllHigh => EdgeInsets.all(highValue);
 
-  /// Adds 10% padding from all sides.
-  EdgeInsets get paddingAllVeryHigh1x => EdgeInsets.all(veryHighValue1x);
-
   /// Adds 1% padding horizontally.
   EdgeInsets get paddingHorizontalLow => EdgeInsets.symmetric(horizontal: lowValue);
 
@@ -119,12 +116,15 @@ extension DurationExtension on BuildContext {
 }
 
 extension ThemeExtension on BuildContext {
-  /// Get the theme data
+  /// Get the [ThemeData]
   ThemeData get theme => Theme.of(this);
 
-  /// Get the text theme
+  /// Get the [TextTheme]
   TextTheme get textTheme => Theme.of(this).textTheme;
 
-  /// Get the brightness
+  /// Get the [Brightness]
   Brightness get brightness => Theme.of(this).brightness;
+
+  /// Get the [ColorScheme]
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
 }

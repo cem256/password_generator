@@ -20,6 +20,9 @@ dependencies:
   firebase_core: ^2.31.1
   firebase_crashlytics: ^3.5.6
 
+  #ui
+  dynamic_color: ^1.7.0
+
   #utility
   crypto: ^3.0.3
   envied: ^0.5.4+1

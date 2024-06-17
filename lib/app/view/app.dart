@@ -1,3 +1,4 @@
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
@@ -42,32 +43,36 @@ class App extends StatelessWidget {
         builder: (context, l10nState) {
           return BlocBuilder<ThemeCubit, ThemeState>(
             builder: (context, themeState) {
-              return MaterialApp.router(
-                debugShowCheckedModeBanner: false,
-                title: StringConstants.appName,
+              return DynamicColorBuilder(
+                builder: (lightColorScheme, darkColorScheme) {
+                  return MaterialApp.router(
+                    debugShowCheckedModeBanner: false,
+                    title: StringConstants.appName,
 
-                // Theme
-                theme: AppThemeLight().theme,
-                darkTheme: AppThemeDark().theme,
-                themeMode: themeState.themeMode,
+                    // Theme
+                    theme: AppThemeLight(colorScheme: lightColorScheme).theme,
+                    darkTheme: AppThemeDark(colorScheme: darkColorScheme).theme,
+                    themeMode: themeState.themeMode,
 
-                // Localization
-                locale: l10nState.locale,
-                supportedLocales: AppLocalizations.supportedLocales,
-                localizationsDelegates: const [
-                  ...AppLocalizations.localizationsDelegates,
-                  LocaleNamesLocalizationsDelegate(),
-                ],
+                    // Localization
+                    locale: l10nState.locale,
+                    supportedLocales: AppLocalizations.supportedLocales,
+                    localizationsDelegates: const [
+                      ...AppLocalizations.localizationsDelegates,
+                      LocaleNamesLocalizationsDelegate(),
+                    ],
 
-                // Routing
-                routerDelegate: _appRouter.delegate(),
-                routeInformationParser: _appRouter.defaultRouteParser(),
+                    // Routing
+                    routerDelegate: _appRouter.delegate(),
+                    routeInformationParser: _appRouter.defaultRouteParser(),
 
-                builder: (context, child) => MediaQuery(
-                  // Disables font scaling and bold text
-                  data: context.mediaQuery.copyWith(boldText: false, textScaler: TextScaler.noScaling),
-                  child: child!,
-                ),
+                    builder: (context, child) => MediaQuery(
+                      // Disables font scaling and bold text
+                      data: context.mediaQuery.copyWith(boldText: false, textScaler: TextScaler.noScaling),
+                      child: child!,
+                    ),
+                  );
+                },
               );
             },
           );
