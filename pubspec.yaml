@@ -1,5 +1,6 @@
 name: password_generator
 version: 1.1.4+22
+publish_to: none
 
 environment:
   sdk: ">=3.1.5 <4.0.0"
@@ -45,8 +46,14 @@ dependencies:
   json_annotation: ^4.9.0
   freezed_annotation: ^2.4.1
 
+  # ui
+
   #app icons
-  flutter_launcher_icons: ^0.13.1
+  # fetch from pub.dev once monochrome icon is supported
+  flutter_launcher_icons:
+    git:
+      url: https://github.com/fluttercommunity/flutter_launcher_icons
+      ref: master
   flutter_native_splash: ^2.4.0
 
 dev_dependencies:
@@ -71,6 +78,7 @@ flutter_launcher_icons:
   image_path: "assets/icons/generator_app_icon.png"
   adaptive_icon_background: "#1E1B16"
   adaptive_icon_foreground: "assets/icons/generator_app_icon_foreground.png"
+  adaptive_icon_monochrome: "assets/icons/generator_app_icon_monochrome.png"
 
 flutter_native_splash:
   android: true
