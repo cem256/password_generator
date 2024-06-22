@@ -34,6 +34,14 @@ jobs:
           fileDir: './lib/'
           encodedString: ${{ secrets.FIREBASE_OPTIONS }}
 
+      - name: Get env file 🗝 
+        id: env_file
+        uses: timheuer/base64-to-file@v1.2.4
+        with:
+          fileName: .env
+          fileDir: './env/'
+          encodedString: ${{ secrets.ENV_FILE }}
+
       - name: Get keystore file 🗝 
         id: android_keystore
         uses: timheuer/base64-to-file@v1.2.4
