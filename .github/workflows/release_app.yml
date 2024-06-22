@@ -58,17 +58,18 @@ jobs:
       - name: Verify Secrets 🔍
         run: |
           echo "STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}"
+          echo "blank"
           echo "KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}"
+          echo "blank"
           echo "KEY_ALIAS: ${{ secrets.KEY_ALIAS }}"
+          echo "blank"
 
       - name: Write Keystore properties 🗝️
         run: |
           echo "storeFile=../app/keystore.jks" > android/key.properties
           echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> android/key.properties
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
-          echo "blank"
           echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
-          echo "blank"
 
       - name: Setup Java ☕
         uses: actions/setup-java@v4.2.1
