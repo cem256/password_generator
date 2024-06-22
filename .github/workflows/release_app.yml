@@ -46,7 +46,7 @@ jobs:
         id: android_keystore
         uses: timheuer/base64-to-file@v1.2.4
         with:
-          fileName: keystore.jks
+          fileName: upload-keystore.jks
           fileDir: './android/app/'
           encodedString: ${{ secrets.KEYSTORE }}
 
