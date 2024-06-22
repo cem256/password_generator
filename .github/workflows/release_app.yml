@@ -50,14 +50,9 @@ jobs:
           fileDir: './android/app/'
           encodedString: ${{ secrets.KEYSTORE }}
 
-      - name: Debug Keystore Path 🐛
-        run: |
-          echo "Keystore file path: ${{ steps.android_keystore.outputs.filePath }}"
-          ls -la ./android/app
-
       - name: Write Keystore properties 🗝️
         run: |
-          echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
+          echo "storeFile=../app/keystore.jks" > android/key.properties
           echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> android/key.properties
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
           echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
