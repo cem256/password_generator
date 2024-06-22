@@ -50,6 +50,17 @@ jobs:
           fileDir: './android/app/'
           encodedString: ${{ secrets.KEYSTORE }}
 
+      - name: Debug Keystore Path 🐛
+        run: |
+          echo "Keystore file path: ${{ steps.android_keystore.outputs.filePath }}"
+          ls -la ./android/app
+
+      - name: Verify Secrets 🔍
+        run: |
+          echo "STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}"
+          echo "KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}"
+          echo "KEY_ALIAS: ${{ secrets.KEY_ALIAS }}"
+
       - name: Write Keystore properties 🗝️
         run: |
           echo "storeFile=../app/keystore.jks" > android/key.properties
@@ -61,7 +72,7 @@ jobs:
         uses: actions/setup-java@v4.2.1
         with:
           distribution: 'adopt'
-          java-version: "17.x"
+          java-version: "8.x"
           cache: 'gradle'
 
       - name: Setup Flutter 📱
