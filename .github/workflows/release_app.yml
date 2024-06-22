@@ -66,13 +66,15 @@ jobs:
           echo "storeFile=../app/keystore.jks" > android/key.properties
           echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> android/key.properties
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+          echo "blank"
           echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
+          echo "blank"
 
       - name: Setup Java ☕
         uses: actions/setup-java@v4.2.1
         with:
           distribution: 'adopt'
-          java-version: "8.x"
+          java-version: "17.x"
           cache: 'gradle'
 
       - name: Setup Flutter 📱
