@@ -20,7 +20,9 @@ mixin _$PasswordHistoryState {
   bool get isCopied => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordHistoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PasswordHistoryStateCopyWith<PasswordHistoryState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$PasswordHistoryStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PasswordHistoryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -88,6 +92,8 @@ class __$$PasswordHistoryStateImplCopyWithImpl<$Res>
       $Res Function(_$PasswordHistoryStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PasswordHistoryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -159,7 +165,9 @@ class _$PasswordHistoryStateImpl extends _PasswordHistoryState {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_history), isCopied, isDeleted);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordHistoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordHistoryStateImplCopyWith<_$PasswordHistoryStateImpl>
@@ -181,8 +189,11 @@ abstract class _PasswordHistoryState extends PasswordHistoryState {
   bool get isCopied;
   @override
   bool get isDeleted;
+
+  /// Create a copy of PasswordHistoryState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordHistoryStateImplCopyWith<_$PasswordHistoryStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

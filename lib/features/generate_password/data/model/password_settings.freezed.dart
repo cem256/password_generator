@@ -26,8 +26,12 @@ mixin _$PasswordSettings {
   bool get hasNumbers => throw _privateConstructorUsedError;
   bool get hasSpecial => throw _privateConstructorUsedError;
 
+  /// Serializes this PasswordSettings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PasswordSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PasswordSettingsCopyWith<PasswordSettings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$PasswordSettingsCopyWithImpl<$Res, $Val extends PasswordSettings>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PasswordSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$PasswordSettingsImplCopyWithImpl<$Res>
       $Res Function(_$PasswordSettingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PasswordSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,12 +207,14 @@ class _$PasswordSettingsImpl extends _PasswordSettings {
                 other.hasSpecial == hasSpecial));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, length, hasLowercase, hasUppercase, hasNumbers, hasSpecial);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PasswordSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PasswordSettingsImplCopyWith<_$PasswordSettingsImpl> get copyWith =>
@@ -241,8 +251,11 @@ abstract class _PasswordSettings extends PasswordSettings {
   bool get hasNumbers;
   @override
   bool get hasSpecial;
+
+  /// Create a copy of PasswordSettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PasswordSettingsImplCopyWith<_$PasswordSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

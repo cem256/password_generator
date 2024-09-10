@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$L10nState {
   Locale get locale => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of L10nState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $L10nStateCopyWith<L10nState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -41,6 +43,8 @@ class _$L10nStateCopyWithImpl<$Res, $Val extends L10nState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of L10nState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,6 +78,8 @@ class __$$L10nStateImplCopyWithImpl<$Res>
       _$L10nStateImpl _value, $Res Function(_$L10nStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of L10nState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -112,7 +118,9 @@ class _$L10nStateImpl extends _L10nState {
   @override
   int get hashCode => Object.hash(runtimeType, locale);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of L10nState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$L10nStateImplCopyWith<_$L10nStateImpl> get copyWith =>
@@ -125,8 +133,11 @@ abstract class _L10nState extends L10nState {
 
   @override
   Locale get locale;
+
+  /// Create a copy of L10nState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$L10nStateImplCopyWith<_$L10nStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
