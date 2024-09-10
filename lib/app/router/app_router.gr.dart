@@ -18,38 +18,6 @@ import 'package:password_generator/features/language/view/language_view.dart'
 import 'package:password_generator/features/password_history/view/password_history_view.dart'
     as _i4;
 
-abstract class $AppRouter extends _i5.RootStackRouter {
-  $AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, _i5.PageFactory> pagesMap = {
-    GeneratePasswordRoute.name: (routeData) {
-      return _i5.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i1.GeneratePasswordView(),
-      );
-    },
-    LanguageRoute.name: (routeData) {
-      return _i5.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.LanguageView(),
-      );
-    },
-    NavbarRoute.name: (routeData) {
-      return _i5.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i3.NavbarView(),
-      );
-    },
-    PasswordHistoryRoute.name: (routeData) {
-      return _i5.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i4.PasswordHistoryView(),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [_i1.GeneratePasswordView]
 class GeneratePasswordRoute extends _i5.PageRouteInfo<void> {
@@ -61,7 +29,12 @@ class GeneratePasswordRoute extends _i5.PageRouteInfo<void> {
 
   static const String name = 'GeneratePasswordRoute';
 
-  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+  static _i5.PageInfo page = _i5.PageInfo(
+    name,
+    builder: (data) {
+      return const _i1.GeneratePasswordView();
+    },
+  );
 }
 
 /// generated route for
@@ -75,7 +48,12 @@ class LanguageRoute extends _i5.PageRouteInfo<void> {
 
   static const String name = 'LanguageRoute';
 
-  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+  static _i5.PageInfo page = _i5.PageInfo(
+    name,
+    builder: (data) {
+      return const _i2.LanguageView();
+    },
+  );
 }
 
 /// generated route for
@@ -89,7 +67,12 @@ class NavbarRoute extends _i5.PageRouteInfo<void> {
 
   static const String name = 'NavbarRoute';
 
-  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+  static _i5.PageInfo page = _i5.PageInfo(
+    name,
+    builder: (data) {
+      return const _i3.NavbarView();
+    },
+  );
 }
 
 /// generated route for
@@ -103,5 +86,10 @@ class PasswordHistoryRoute extends _i5.PageRouteInfo<void> {
 
   static const String name = 'PasswordHistoryRoute';
 
-  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+  static _i5.PageInfo page = _i5.PageInfo(
+    name,
+    builder: (data) {
+      return const _i4.PasswordHistoryView();
+    },
+  );
 }
