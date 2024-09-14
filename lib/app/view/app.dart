@@ -6,6 +6,7 @@ import 'package:password_generator/app/constants/string_constants.dart';
 import 'package:password_generator/app/l10n/cubit/l10n_cubit.dart';
 import 'package:password_generator/app/l10n/extensions/app_l10n_extensions.dart';
 import 'package:password_generator/app/router/app_router.dart';
+import 'package:password_generator/app/router/custom_route_observer.dart';
 import 'package:password_generator/app/theme/cubit/theme_cubit.dart';
 import 'package:password_generator/app/theme/dark/app_theme_dark.dart';
 import 'package:password_generator/app/theme/light/app_theme_light.dart';
@@ -63,7 +64,9 @@ class App extends StatelessWidget {
                     ],
 
                     // Routing
-                    routerDelegate: _appRouter.delegate(),
+                    routerDelegate: _appRouter.delegate(
+                      navigatorObservers: () => [CustomRouteObserver()],
+                    ),
                     routeInformationParser: _appRouter.defaultRouteParser(),
 
                     builder: (context, child) => MediaQuery(
