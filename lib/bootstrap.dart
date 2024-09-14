@@ -12,6 +12,7 @@ import 'package:password_generator/app/env/env.dart';
 import 'package:password_generator/core/clients/cache/cache_migration_client.dart';
 import 'package:password_generator/core/utils/encryption/encryption_utils.dart';
 import 'package:password_generator/core/utils/logger/logger_utils.dart';
+import 'package:password_generator/core/utils/observer/custom_bloc_observer.dart';
 import 'package:password_generator/core/utils/package_info/package_info_utils.dart';
 import 'package:password_generator/firebase_options.dart';
 import 'package:path_provider/path_provider.dart';
@@ -51,6 +52,12 @@ Future<void> bootstrap({required FutureOr<Widget> Function() builder}) async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
     encryptionCipher: HydratedAesCipher(encryptionKey),
+  );
+
+  // Initialize Bloc Observer
+  Bloc.observer = CustomBlocObserver(
+    logEvents: false,
+    logTransitions: false,
   );
 
   runApp(await builder());
