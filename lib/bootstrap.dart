@@ -50,7 +50,7 @@ Future<void> bootstrap({required FutureOr<Widget> Function() builder}) async {
 
   // Initialize Hydrated Bloc
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: await getApplicationDocumentsDirectory(),
+    storageDirectory: HydratedStorageDirectory((await getTemporaryDirectory()).path),
     encryptionCipher: HydratedAesCipher(encryptionKey),
   );
 

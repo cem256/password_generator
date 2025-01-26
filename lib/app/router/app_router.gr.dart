@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -22,10 +23,7 @@ import 'package:password_generator/features/password_history/view/password_histo
 /// [_i1.GeneratePasswordView]
 class GeneratePasswordRoute extends _i5.PageRouteInfo<void> {
   const GeneratePasswordRoute({List<_i5.PageRouteInfo>? children})
-      : super(
-          GeneratePasswordRoute.name,
-          initialChildren: children,
-        );
+    : super(GeneratePasswordRoute.name, initialChildren: children);
 
   static const String name = 'GeneratePasswordRoute';
 
@@ -41,10 +39,7 @@ class GeneratePasswordRoute extends _i5.PageRouteInfo<void> {
 /// [_i2.LanguageView]
 class LanguageRoute extends _i5.PageRouteInfo<void> {
   const LanguageRoute({List<_i5.PageRouteInfo>? children})
-      : super(
-          LanguageRoute.name,
-          initialChildren: children,
-        );
+    : super(LanguageRoute.name, initialChildren: children);
 
   static const String name = 'LanguageRoute';
 
@@ -60,10 +55,7 @@ class LanguageRoute extends _i5.PageRouteInfo<void> {
 /// [_i3.NavbarView]
 class NavbarRoute extends _i5.PageRouteInfo<void> {
   const NavbarRoute({List<_i5.PageRouteInfo>? children})
-      : super(
-          NavbarRoute.name,
-          initialChildren: children,
-        );
+    : super(NavbarRoute.name, initialChildren: children);
 
   static const String name = 'NavbarRoute';
 
@@ -79,10 +71,7 @@ class NavbarRoute extends _i5.PageRouteInfo<void> {
 /// [_i4.PasswordHistoryView]
 class PasswordHistoryRoute extends _i5.PageRouteInfo<void> {
   const PasswordHistoryRoute({List<_i5.PageRouteInfo>? children})
-      : super(
-          PasswordHistoryRoute.name,
-          initialChildren: children,
-        );
+    : super(PasswordHistoryRoute.name, initialChildren: children);
 
   static const String name = 'PasswordHistoryRoute';
 
