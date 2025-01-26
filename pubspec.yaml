@@ -10,8 +10,8 @@ dependencies:
     sdk: flutter
 
   #state management
-  flutter_bloc: ^8.1.5
-  hydrated_bloc: ^9.1.5
+  flutter_bloc: ^9.0.0
+  hydrated_bloc: ^10.0.0
 
   # caching
   hive_flutter: ^1.1.0
@@ -25,7 +25,7 @@ dependencies:
 
   #utility
   crypto: ^3.0.3
-  envied: ^0.5.4+1
+  envied: ^1.1.0
   logger: ^2.3.0
   recase: ^4.1.0
   share_plus: ^10.0.2
@@ -64,13 +64,13 @@ dev_dependencies:
     sdk: flutter
 
   #linter
-  very_good_analysis: ^6.0.0
+  very_good_analysis: ^7.0.0
 
   #code gen
   freezed: ^2.5.2
   build_runner: ^2.4.12
   json_serializable: ^6.8.0
-  envied_generator: ^0.5.4+1
+  envied_generator: ^1.1.0
   auto_route_generator: ^9.0.0
 
 flutter_launcher_icons:
