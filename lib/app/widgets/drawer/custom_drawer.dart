@@ -86,15 +86,13 @@ class CustomDrawer extends StatelessWidget {
                   children: [
                     ListTile(
                       onTap: () async => UrlLauncherUtils.launchUrlFromString(
-                        url: Platform.isAndroid
-                            ? StringConstants.gptDetectorPlayStoreUrl
-                            : StringConstants.gptDetectorAppStoreUrl,
+                        url: StringConstants.gptDetectorPlayStoreUrl,
                       ),
                       leading: Image.asset(
                         AssetConstants.gptDetectorAppIcon,
                         height: 24,
                       ),
-                      title: Text(StringConstants.gptDetector),
+                      title: const Text(StringConstants.gptDetector),
                       subtitle: Text(context.l10n.gpt_detector_description),
                     ),
                   ],

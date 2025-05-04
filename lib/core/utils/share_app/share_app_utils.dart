@@ -10,7 +10,7 @@ abstract final class ShareAppUtils {
   static Future<void> shareApp(BuildContext context) async {
     final box = context.findRenderObject() as RenderBox?;
     await Share.share(
-      Platform.isAndroid ? StringConstants.googlePlayUrl : StringConstants.appStoreUrl,
+      StringConstants.googlePlayUrl,
       // For the iPads this parameter is required
       // https://pub.dev/packages/share_plus#known-issues
       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
