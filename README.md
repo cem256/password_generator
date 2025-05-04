@@ -4,7 +4,6 @@ Password Generator generates secure passwords of specified length and settings.
 
 ## Available on
 [![Google Play](https://play.google.com/intl/en_us/badges/images/badge_new.png)](https://play.google.com/store/apps/details?id=com.cem256.passwordgenerator)
-[![App Store](https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png)](https://apps.apple.com/app/fabi-password-generator/id6483365070)
 
 ## Built With
 
